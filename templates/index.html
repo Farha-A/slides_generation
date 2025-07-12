@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slides Generation</title>
+    <link rel="stylesheet" href="/static/index_style.css">
+    <script src="/static/index_script.js"></script>
+</head>
+<body>
+    <h1>Slides Generation</h1>
+    <div class="button-grid">
+        <button onclick="showModal('uploadModal')">Upload New Content</button>
+        <button onclick="showModal('generateSlidePointsModal')">Generate Slide Points</button>
+        <button onclick="showModal('generateSlidesModal')">Generate Slides</button>
+        <button onclick="window.location.href='/open_uploaded'">Open Uploaded Files</button>
+        <button onclick="window.location.href='/open_slide_points'">Open Generated Slides Points</button>
+        <button onclick="window.location.href='/open_slides'">Open Generated Slides</button>
+    </div>
+
+    <div id="progressSection" style="display: none;">
+        <h2>Processing Status</h2>
+        <progress id="progressBar" value="0" max="100"></progress>
+        <p id="statusMessage">Initializing...</p>
+    </div>
+
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModal('uploadModal')">&times;</span>
+            <h2>Upload PDF</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Select PDF File (Max 500MB):</label>
+                    <input type="file" id="file" name="file" accept=".pdf" required>
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grade:</label>
+                    <input type="text" id="grade" name="grade" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course:</label>
+                    <input type="text" id="course" name="course" required>
+                </div>
+                <div class="form-group">
+                    <label for="section">Section:</label>
+                    <input type="text" id="section" name="section" required>
+                </div>
+                <div class="form-group">
+                    <label for="language">Language:</label>
+                    <select id="language" name="language" required>
+                        <option value="" disabled selected>Select Language</option>
+                        <option value="eng">English</option>
+                        <option value="ara">Arabic</option>
+                        <option value="fra">French</option>
+                        <option value="spa">Spanish</option>
+                        <option value="deu">German</option>
+                        <option value="zho">Chinese</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <button type="button" onclick="uploadFile()">Upload and Process</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="generateSlidePointsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModal('generateSlidePointsModal')">&times;</span>
+            <h2>Generate Slide Points</h2>
+            <form id="generateSlidePointsForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="sp_grade">Grade:</label>
+                    <input type="text" id="sp_grade" name="grade" oninput="filterFiles()">
+                </div>
+                <div class="form-group">
+                    <label for="sp_course">Course:</label>
+                    <input type="text" id="sp_course" name="course" oninput="filterFiles()">
+                </div>
+                <div class="form-group">
+                    <label for="sp_section">Section:</label>
+                    <input type="text" id="sp_section" name="section" oninput="filterFiles()">
+                </div>
+                <div class="form-group">
+                    <label for="sp_language">Language:</label>
+                    <select id="sp_language" name="language" oninput="filterFiles()">
+                        <option value="" disabled selected>Select Language</option>
+                        <option value="eng">English</option>
+                        <option value="ara">Arabic</option>
+                        <option value="fra">French</option>
+                        <option value="spa">Spanish</option>
+                        <option value="deu">German</option>
+                        <option value="zho">Chinese</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sp_country">Country:</label>
+                    <input type="text" id="sp_country" name="country" oninput="filterFiles()">
+                </div>
+                <div class="form-group">
+                    <label for="sp_filenames">Available Content Files:</label>
+                    <select id="sp_filenames" name="filenames" multiple style="width: 100%; height: 150px;">
+                    </select>
+                </div>
+                <button type="button" onclick="generateSlidePoints()">Generate Slide Points</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
