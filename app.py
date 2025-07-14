@@ -227,25 +227,25 @@ def view_uploaded_pdf(filename):
 def generate_slides():
     """Generate slides - optimized for large content with progress tracking"""
     filename = request.form.get('filename', '').strip()
-    grade = request.form.get('grade', '').strip()
-    course = request.form.get('course', '').strip()
-    section = request.form.get('section', '').strip()
-    country = request.form.get('country', '').strip()
-    language = request.form.get('language', '').strip()
-    original_filename = os.path.splitext(filename)[0]
     
-    if not all([filename, grade, course, section, country, language]):
-        logger.error("Missing required form fields in generate_slides")
-        return jsonify({'error': 'Missing required form fields'}), 400
+    # Split filename to extract parameters
+    parts = filename.rsplit('.', 1)[0].split('_', 5)  # Remove .txt extension before splitting
+    if len(parts) < 6:
+        logger.error("Invalid filename format")
+        return jsonify({'error': 'Invalid filename format'}), 400
+    
+    course, grade, section, language, country, original_filename = parts
+    original_filename = '_'.join(parts[5:])  # Handle multiple underscores in ogname
+    base_filename = f"{course}_{grade}_{section}_{language}_{country}_{original_filename}"
     
     txt_path = os.path.join(app.config['CONTENT_FOLDER'], filename)
     if not os.path.exists(txt_path):
         logger.error(f"Text file not found: {txt_path}")
         return jsonify({'error': 'Text file not found'}), 404
     
-    base_filename = f"{course}_{grade}_{section}_{language}_{country}_{original_filename}"
-    output_txt_path = os.path.join(app.config['GEMINI_FOLDER'], f"{base_filename}_gemini_response.txt")
+    output_txt_path = os.path.join(app.config['GEMINI_FOLDER'], f"{original_filename}_gemini_response.txt")
     pdf_path = os.path.join(app.config['GEMINI_FOLDER'], f"{base_filename}_gemini_response.pdf")
+    
     job_id = f"gen_{int(time.time())}_{secure_filename(filename)}"
     
     # Initialize progress status immediately
