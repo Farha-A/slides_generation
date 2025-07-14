@@ -1,7 +1,7 @@
 function showModal(modalId) {
     var modal = document.getElementById(modalId);
     modal.style.display = 'block';
-    if (modalId === 'generateSlidePointsModal' || modalId === 'openUploadedFilesModal') {
+    if (modalId === 'generateSlidePointsModal' || modalId === 'openUploadedFilesModal' || modalId === 'openGeneratedSlidePointsModal') {
         fetchFiles(modalId);
     }
 }
@@ -19,13 +19,11 @@ function startProgress(jobId) {
         const statusMessage = document.getElementById('statusMessage');
         const progressBar = document.getElementById('progressBar');
         
-        // Update UI elements
         statusMessage.textContent = data.message || 'Processing...';
         progressBar.value = data.progress || 0;
         
-        // Force UI refresh
         statusMessage.style.display = 'none';
-        statusMessage.offsetHeight; // Trigger reflow
+        statusMessage.offsetHeight;
         statusMessage.style.display = 'block';
         
         if (data.stage === 'completed') {
@@ -72,12 +70,21 @@ function uploadFile() {
 }
 
 function fetchFiles(modalId) {
-    fetch('/get_content_files')
+    let endpoint;
+    if (modalId === 'generateSlidePointsModal' || modalId === 'openUploadedFilesModal') {
+        endpoint = '/get_content_files';
+    } else if (modalId === 'openGeneratedSlidePointsModal') {
+        endpoint = '/get_generated_slide_points';
+    }
+
+    fetch(endpoint)
         .then(response => response.json())
         .then(data => {
             const fileSelect = modalId === 'generateSlidePointsModal' ? 
                 document.getElementById('sp_filenames') : 
-                document.getElementById('of_filenames');
+                modalId === 'openUploadedFilesModal' ? 
+                document.getElementById('of_filenames') : 
+                document.getElementById('ogsp_filenames');
             fileSelect.innerHTML = '';
             data.files.forEach(file => {
                 const option = document.createElement('option');
@@ -87,8 +94,10 @@ function fetchFiles(modalId) {
             });
             if (modalId === 'generateSlidePointsModal') {
                 filterFiles();
-            } else {
+            } else if (modalId === 'openUploadedFilesModal') {
                 filterUploadedFiles();
+            } else if (modalId === 'openGeneratedSlidePointsModal') {
+                filterGeneratedSlidePoints();
             }
         })
         .catch(error => {
@@ -139,6 +148,27 @@ function filterUploadedFiles() {
     }
 }
 
+function filterGeneratedSlidePoints() {
+    const grade = document.getElementById('ogsp_grade').value.toLowerCase();
+    const course = document.getElementById('ogsp_course').value.toLowerCase();
+    const section = document.getElementById('ogsp_section').value.toLowerCase();
+    const language = document.getElementById('ogsp_language').value.toLowerCase();
+    const country = document.getElementById('ogsp_country').value.toLowerCase();
+    const fileSelect = document.getElementById('ogsp_filenames');
+    const options = fileSelect.options;
+
+    for (let i = 0; i < options.length; i++) {
+        const file = options[i].value.toLowerCase();
+        const show =
+            (grade === '' || file.includes(grade)) &&
+            (course === '' || file.includes(course)) &&
+            (section === '' || file.includes(section)) &&
+            (language === '' || file.includes(language)) &&
+            (country === '' || file.includes(country));
+        options[i].style.display = show ? '' : 'none';
+    }
+}
+
 function openUploadedFile() {
     const fileSelect = document.getElementById('of_filenames');
     const selectedFile = fileSelect.value;
@@ -149,7 +179,10 @@ function openUploadedFile() {
     }
 
     fetch(`/view_text_file/${encodeURIComponent(selectedFile)}`)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to fetch text file');
+            return response.text();
+        })
         .then(data => {
             const newWindow = window.open('', '_blank');
             newWindow.document.write('<pre>' + data + '</pre>');
@@ -175,6 +208,50 @@ function downloadUploadedFile() {
     window.location.href = `/download_text_as_pdf/${encodeURIComponent(selectedFile)}`;
 }
 
+function openGeneratedSlidePoints() {
+    const fileSelect = document.getElementById('ogsp_filenames');
+    const selectedFile = fileSelect.value;
+
+    if (!selectedFile) {
+        alert('Please select a slide points file.');
+        return;
+    }
+
+    fetch(`/view_pdf/${encodeURIComponent(selectedFile)}`)
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to fetch PDF');
+            return response.blob();
+        })
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const newWindow = window.open(url, '_blank');
+            if (!newWindow) {
+                alert('Failed to open PDF. Please allow pop-ups.');
+            } else {
+                newWindow.document.title = selectedFile;
+            }
+            window.URL.revokeObjectURL(url);
+            hideModal('openGeneratedSlidePointsModal');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while opening the file.');
+        });
+}
+
+function downloadGeneratedSlidePoints() {
+    const fileSelect = document.getElementById('ogsp_filenames');
+    const selectedFile = fileSelect.value;
+
+    if (!selectedFile) {
+        alert('Please select a slide points file.');
+        return;
+    }
+
+    hideModal('openGeneratedSlidePointsModal');
+    window.location.href = `/view_pdf/${encodeURIComponent(selectedFile)}`;
+}
+
 function generateSlidePoints() {
     var form = document.getElementById('generateSlidePointsForm');
     var formData = new FormData(form);
@@ -198,7 +275,7 @@ function generateSlidePoints() {
         .then(data => {
             if (data.success) {
                 alert('Slide points generation started for ' + filename);
-                startProgress(data.job_id); // Use server-provided job_id
+                startProgress(data.job_id);
             } else {
                 alert('Generation failed for ' + filename + ': ' + data.error);
             }

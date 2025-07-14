@@ -26,12 +26,10 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-# Increased timeout and size limits for large files
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500 MB limit
-app.config['UPLOAD_TIMEOUT'] = 1800  # 30 minutes
+app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024
+app.config['UPLOAD_TIMEOUT'] = 1800
 
-# Set base directory to the project root
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'Uploads')
 CONTENT_FOLDER = os.path.join(BASE_DIR, 'content_text')
@@ -46,7 +44,6 @@ app.config['PROGRESS_FOLDER'] = PROGRESS_FOLDER
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Ensure folders exist
 for folder in [UPLOAD_FOLDER, CONTENT_FOLDER, GEMINI_FOLDER, PROGRESS_FOLDER]:
     try:
         os.makedirs(folder, exist_ok=True)
@@ -59,7 +56,6 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 processing_status = {}
 status_lock = threading.Lock()
 
-# Register fonts for different languages
 try:
     FONTS_DIR = os.path.join(BASE_DIR, 'fonts')
     os.makedirs(FONTS_DIR, exist_ok=True)
@@ -74,7 +70,6 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    """Async upload handler for large files"""
     if 'file' not in request.files:
         logger.error("No file uploaded")
         return jsonify({'error': 'No file uploaded'}), 400
@@ -126,11 +121,10 @@ def upload_file():
 
 @app.route('/progress/<job_id>')
 def progress(job_id):
-    """Stream progress updates to the client using SSE"""
     def generate():
         last_update = None
         start_time = time.time()
-        timeout = 1800  # 30 minutes timeout
+        timeout = 1800
         while time.time() - start_time < timeout:
             with status_lock:
                 if job_id in processing_status:
@@ -142,7 +136,7 @@ def progress(job_id):
                         break
                 else:
                     yield f"data: {json.dumps({'stage': 'initializing', 'progress': 0, 'message': 'Initializing job...', 'timestamp': datetime.now().isoformat()})}\n\n"
-                    time.sleep(1)  # Wait briefly for job to initialize
+                    time.sleep(1)
                     continue
             time.sleep(1)
         if time.time() - start_time >= timeout:
@@ -151,7 +145,6 @@ def progress(job_id):
 
 @app.route('/get_content_files')
 def get_content_files():
-    """Return list of available content files"""
     try:
         files = [f for f in os.listdir(app.config['CONTENT_FOLDER']) if f.endswith('.txt')]
         return jsonify({'files': files})
@@ -159,9 +152,17 @@ def get_content_files():
         logger.error(f"Error listing content files: {e}")
         return jsonify({'error': str(e)}), 500
 
+@app.route('/get_generated_slide_points')
+def get_generated_slide_points():
+    try:
+        files = [f for f in os.listdir(app.config['GEMINI_FOLDER']) if f.endswith('.pdf')]
+        return jsonify({'files': files})
+    except Exception as e:
+        logger.error(f"Error listing generated slide points: {e}")
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/view_text_file/<filename>')
 def view_text_file(filename):
-    """Serve text file content"""
     decoded_filename = urllib.parse.unquote(filename)
     file_path = os.path.join(app.config['CONTENT_FOLDER'], decoded_filename)
     try:
@@ -177,7 +178,6 @@ def view_text_file(filename):
 
 @app.route('/download_text_as_pdf/<filename>')
 def download_text_as_pdf(filename):
-    """Convert text file to PDF and serve for download"""
     decoded_filename = urllib.parse.unquote(filename)
     file_path = os.path.join(app.config['CONTENT_FOLDER'], decoded_filename)
     try:
@@ -197,7 +197,6 @@ def download_text_as_pdf(filename):
 
         response = send_file(pdf_path, mimetype='application/pdf', as_attachment=True)
         
-        # Clean up the generated PDF after sending
         try:
             os.remove(pdf_path)
             logger.info(f"Cleaned up generated PDF: {pdf_path}")
@@ -209,11 +208,10 @@ def download_text_as_pdf(filename):
         logger.error(f"Error serving PDF: {e}")
         return jsonify({'error': str(e)}), 500
 
-@app.route('/view_uploaded_pdf/<filename>')
-def view_uploaded_pdf(filename):
-    """Serve uploaded PDF"""
+@app.route('/view_pdf/<filename>')
+def view_pdf(filename):
     decoded_filename = urllib.parse.unquote(filename)
-    file_path = os.path.join(app.config['UPLOAD_FOLDER'], decoded_filename)
+    file_path = os.path.join(app.config['GEMINI_FOLDER'], decoded_filename)
     try:
         if os.path.exists(file_path):
             return send_file(file_path, mimetype='application/pdf', as_attachment=True)
@@ -225,7 +223,6 @@ def view_uploaded_pdf(filename):
 
 @app.route('/generate_slides', methods=['POST'])
 def generate_slides():
-    """Generate slides - optimized for large content with progress tracking"""
     filename = request.form.get('filename', '').strip()
     grade = request.form.get('grade', '').strip()
     course = request.form.get('course', '').strip()
@@ -234,21 +231,20 @@ def generate_slides():
     language = request.form.get('language', '').strip()
     original_filename = os.path.splitext(filename)[0]
     
-    if not all([filename, grade, course, section, country, language]):
-        logger.error("Missing required form fields in generate_slides")
-        return jsonify({'error': 'Missing required form fields'}), 400
+    # if not all([filename, grade, course, section, country, language]):
+    #     logger.error("Missing required form fields in generate_slides")
+    #     return jsonify({'error': 'Missing required form fields'}), 400
     
     txt_path = os.path.join(app.config['CONTENT_FOLDER'], filename)
     if not os.path.exists(txt_path):
         logger.error(f"Text file not found: {txt_path}")
         return jsonify({'error': 'Text file not found'}), 404
     
-    base_filename = f"{course}_{grade}_{section}_{language}_{country}_{original_filename}"
-    output_txt_path = os.path.join(app.config['GEMINI_FOLDER'], f"{base_filename}_gemini_response.txt")
-    pdf_path = os.path.join(app.config['GEMINI_FOLDER'], f"{base_filename}_gemini_response.pdf")
+    # base_filename = f"{course}_{grade}_{section}_{language}_{country}_{original_filename}"
+    output_txt_path = os.path.join(app.config['GEMINI_FOLDER'], f"{original_filename}_gemini_response.txt")
+    pdf_path = os.path.join(app.config['GEMINI_FOLDER'], f"{original_filename}_gemini_response.pdf")
     job_id = f"gen_{int(time.time())}_{secure_filename(filename)}"
     
-    # Initialize progress status immediately
     update_progress(job_id, 'initializing', 0, "Initializing slide generation...")
     
     def process_slides_background():
@@ -269,7 +265,6 @@ def generate_slides():
             logger.info(f"Processing {total_pages} pages for Gemini...")
             update_progress(job_id, 'processing', 20, f"Processing {total_pages} pages...")
             
-            # Process in smaller batches for large files
             if total_pages <= 20:
                 response = model.generate_content(prompt + "\n\nContent:\n" + full_content)
                 if response and response.text:
@@ -282,9 +277,8 @@ def generate_slides():
                         os.remove(output_txt_path)
                     return
             else:
-                # Process in smaller batches for large files
                 pages = re.split(r'--- Page \d+ ---', full_content)[1:]
-                batch_size = 15  # Smaller batch size for large files
+                batch_size = 15
                 batch_count = 0
                 
                 for start_page in range(0, total_pages, batch_size):
@@ -296,7 +290,6 @@ def generate_slides():
                     
                     page_content = "".join(pages[start_page:end_page])
                     
-                    # Add retry logic for API calls
                     max_retries = 3
                     for attempt in range(max_retries):
                         try:
@@ -308,7 +301,7 @@ def generate_slides():
                             else:
                                 logger.warning(f"No response for pages {start_page + 1}-{end_page}, attempt {attempt + 1}")
                                 if attempt < max_retries - 1:
-                                    time.sleep(2 ** attempt)  # Exponential backoff
+                                    time.sleep(2 ** attempt)
                         except Exception as api_error:
                             logger.error(f"API error for pages {start_page + 1}-{end_page}, attempt {attempt + 1}: {api_error}")
                             if attempt < max_retries - 1:
@@ -316,7 +309,6 @@ def generate_slides():
                             else:
                                 logger.error(f"Failed to process pages {start_page + 1}-{end_page} after {max_retries} attempts")
                     
-                    # Small delay between batches
                     time.sleep(1)
             
             update_progress(job_id, 'verifying', 80, "Verifying processed content...")
@@ -362,29 +354,13 @@ def generate_slides():
             except Exception as cleanup_error:
                 logger.warning(f"Error during cleanup: {cleanup_error}")
     
-    # Start background processing
     thread = threading.Thread(target=process_slides_background)
     thread.daemon = True
     thread.start()
     
     return jsonify({'success': True, 'job_id': job_id, 'message': 'Slide generation started'})
 
-@app.route('/view_pdf/<filename>')
-def view_pdf(filename):
-    """Serve generated PDF"""
-    decoded_filename = urllib.parse.unquote(filename)
-    file_path = os.path.join(app.config['GEMINI_FOLDER'], decoded_filename)
-    try:
-        if os.path.exists(file_path):
-            return send_file(file_path, mimetype='application/pdf')
-        logger.error(f"PDF not found: {file_path}")
-        return jsonify({'error': 'PDF not found'}), 404
-    except Exception as e:
-        logger.error(f"Error serving PDF: {e}")
-        return jsonify({'error': str(e)}), 500
-
 def update_progress(job_id, stage, progress, message=""):
-    """Update processing progress"""
     with status_lock:
         processing_status[job_id] = {
             'stage': stage,
@@ -393,7 +369,6 @@ def update_progress(job_id, stage, progress, message=""):
             'timestamp': datetime.now().isoformat()
         }
     
-    # Also save to file for persistence
     try:
         progress_file = os.path.join(app.config['PROGRESS_FOLDER'], f"{job_id}.json")
         with open(progress_file, 'w') as f:
@@ -402,11 +377,9 @@ def update_progress(job_id, stage, progress, message=""):
         logger.error(f"Error saving progress to file: {e}")
 
 def has_extractable_text(pdf_file):
-    """Check if PDF has extractable text - optimized for large files"""
     try:
         with open(pdf_file, 'rb') as file:
             reader = PyPDF2.PdfReader(file)
-            # Check only first few pages for efficiency
             pages_to_check = min(3, len(reader.pages))
             
             for i in range(pages_to_check):
@@ -418,7 +391,6 @@ def has_extractable_text(pdf_file):
     return False
 
 def extract_text_streaming(pdf_file, output_path, start_page, end_page, job_id=None):
-    """Extract text with progress updates"""
     try:
         with open(pdf_file, 'rb') as file:
             reader = PyPDF2.PdfReader(file)
@@ -435,19 +407,17 @@ def extract_text_streaming(pdf_file, output_path, start_page, end_page, job_id=N
                     f.write(f"\n--- Page {i + 1} ---\n")
                     f.write(text)
                     f.write("\n")
-                    f.flush()  # Ensure immediate write
+                    f.flush()
     except Exception as e:
         logger.error(f"Error extracting text from {pdf_file}: {e}")
         with open(output_path, 'a', encoding='utf-8') as f:
             f.write(f"Error extracting text: {e}\n")
 
 def ocr_content_streaming(pdf_path, output_path, start_page, end_page, language='eng', job_id=None):
-    """OCR content with progress updates and memory optimization"""
     try:
         logger.info(f"Starting OCR for pages {start_page+1} to {end_page} (language: {language})")
         
-        # Process in smaller batches to manage memory
-        batch_size = 1  # Process one page at a time for large files
+        batch_size = 1
         mode = 'w' if start_page == 0 else 'a'
         
         with open(output_path, mode, encoding='utf-8') as f:
@@ -457,7 +427,6 @@ def ocr_content_streaming(pdf_path, output_path, start_page, end_page, language=
                 batch_end = min(batch_start + batch_size, end_page)
                 
                 try:
-                    # Convert batch of pages
                     images = convert_from_path(
                         pdf_path,
                         dpi=100,
@@ -474,7 +443,6 @@ def ocr_content_streaming(pdf_path, output_path, start_page, end_page, language=
                         
                         logger.info(f"Processing page {i + 1} with OCR...")
                         
-                        # Optimize image size
                         max_dimension = 1800
                         if max(image.size) > max_dimension:
                             ratio = max_dimension / max(image.size)
@@ -492,7 +460,7 @@ def ocr_content_streaming(pdf_path, output_path, start_page, end_page, language=
                                 image,
                                 lang=language,
                                 config=custom_config,
-                                timeout=180  # Increased timeout
+                                timeout=180
                             )
                             
                             f.write(f"\n--- Page {i + 1} ---\n")
@@ -506,10 +474,8 @@ def ocr_content_streaming(pdf_path, output_path, start_page, end_page, language=
                             f.write(f"Error processing page: {str(page_error)}\n")
                             f.write("\n")
                         
-                        # Clean up image from memory
                         del image
                     
-                    # Clean up batch images
                     del images
                     
                 except Exception as batch_error:
@@ -517,7 +483,6 @@ def ocr_content_streaming(pdf_path, output_path, start_page, end_page, language=
                     f.write(f"\n--- Pages {batch_start+1}-{batch_end} (Batch Error) ---\n")
                     f.write(f"Error: {str(batch_error)}\n")
                 
-                # Small delay to prevent overwhelming the system
                 time.sleep(0.1)
                 
         logger.info(f"OCR completed for pages {start_page+1} to {end_page}")
@@ -528,7 +493,6 @@ def ocr_content_streaming(pdf_path, output_path, start_page, end_page, language=
             f.write(f"Error performing OCR on pages {start_page+1}-{end_page}: {e}\n")
 
 def process_chunk_with_progress(pdf_path, txt_path, start_page, end_page, is_extractable, language, job_id=None):
-    """Process chunk with progress tracking"""
     try:
         if is_extractable:
             extract_text_streaming(pdf_path, txt_path, start_page, end_page, job_id)
@@ -541,7 +505,6 @@ def process_chunk_with_progress(pdf_path, txt_path, start_page, end_page, is_ext
             f.write(f"Error: {str(chunk_error)}\n")
 
 def process_pdf_background(pdf_path, txt_path, grade, course, section, language, country, original_filename, job_id):
-    """Background processing for large PDFs with cleanup"""
     try:
         update_progress(job_id, 'analyzing', 10, "Analyzing PDF structure...")
         
@@ -555,21 +518,18 @@ def process_pdf_background(pdf_path, txt_path, grade, course, section, language,
         
         update_progress(job_id, 'processing', 20, f"Processing {num_pages} pages...")
         
-        # Adjust chunk size based on file size and processing type
         chunk_size = 1 if not is_extractable and num_pages > 100 else (2 if not is_extractable else 8)
         
-        # Process sequentially for large files to avoid memory issues
         for start in range(0, num_pages, chunk_size):
             end = min(start + chunk_size, num_pages)
             
-            progress = 20 + ((start / num_pages) * 60)  # 20% to 80% for processing
+            progress = 20 + ((start / num_pages) * 60)
             update_progress(job_id, 'processing', progress, f"Processing pages {start+1}-{end}")
             
             process_chunk_with_progress(pdf_path, txt_path, start, end, is_extractable, language, job_id)
         
         update_progress(job_id, 'verifying', 85, "Verifying processed content...")
         
-        # Verify all pages
         with open(txt_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
@@ -592,7 +552,6 @@ def process_pdf_background(pdf_path, txt_path, grade, course, section, language,
         update_progress(job_id, 'error', 0, f"Error: {str(e)}")
         
     finally:
-        # Clean up resources
         with status_lock:
             if job_id in processing_status:
                 del processing_status[job_id]
@@ -601,7 +560,6 @@ def process_pdf_background(pdf_path, txt_path, grade, course, section, language,
             os.remove(progress_file)
 
 def generate_pdf_from_text(text, output_path, language='english'):
-    """Generate PDF from text - same as original but with better error handling"""
     try:
         buffer = BytesIO()
         doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=36, leftMargin=36, topMargin=36, bottomMargin=36)
@@ -614,7 +572,7 @@ def generate_pdf_from_text(text, output_path, language='english'):
             fontName='Amiri',
             fontSize=12,
             leading=16,
-            alignment=2,  # TA_RIGHT
+            alignment=2,
             spaceAfter=12,
             textColor=colors.black,
             allowWidows=1,
@@ -628,7 +586,7 @@ def generate_pdf_from_text(text, output_path, language='english'):
             fontName='DejaVuSans',
             fontSize=12,
             leading=16,
-            alignment=1,  # TA_LEFT
+            alignment=1,
             spaceAfter=12,
             textColor=colors.black
         )
@@ -670,7 +628,6 @@ def generate_pdf_from_text(text, output_path, language='english'):
         with open(output_path, 'wb') as f:
             f.write(buffer.read())
         
-        # Clean up buffer
         buffer.close()
         
     except Exception as e:
@@ -678,7 +635,6 @@ def generate_pdf_from_text(text, output_path, language='english'):
         raise
 
 def construct_prompt(grade, course, section, country, language):
-    """Construct prompt for slide generation"""
     return f"""
 Role:
 You are an expert Instructional Content Designer specializing in creating visually organized, curriculum-aligned slide presentations for classroom use.
@@ -738,7 +694,6 @@ Remove all markdown style formatting (e.g., no bold, italics, etc.).
 """
 
 def get_page_count(txt_path):
-    """Count pages in text file"""
     try:
         with open(txt_path, 'r', encoding='utf-8') as f:
             content = f.read()
