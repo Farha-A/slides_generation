@@ -99,7 +99,7 @@ def upload_file():
         original_filename = os.path.splitext(file.filename)[0]
         base_filename = f"{course}_{grade}_{section}_{language}_{country}_{original_filename}"
         
-        pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{job_id}.pdf")
+        pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{base_filename}.pdf")
         txt_path = os.path.join(app.config['CONTENT_FOLDER'], f"{base_filename}.txt")
         
         logger.info(f"Saving uploaded file: {file.filename}")
@@ -157,6 +157,70 @@ def get_content_files():
         return jsonify({'files': files})
     except Exception as e:
         logger.error(f"Error listing content files: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/view_text_file/<filename>')
+def view_text_file(filename):
+    """Serve text file content"""
+    decoded_filename = urllib.parse.unquote(filename)
+    file_path = os.path.join(app.config['CONTENT_FOLDER'], decoded_filename)
+    try:
+        if os.path.exists(file_path):
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            return content, 200, {'Content-Type': 'text/plain; charset=utf-8'}
+        logger.error(f"Text file not found: {file_path}")
+        return jsonify({'error': 'Text file not found'}), 404
+    except Exception as e:
+        logger.error(f"Error serving text file: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/download_text_as_pdf/<filename>')
+def download_text_as_pdf(filename):
+    """Convert text file to PDF and serve for download"""
+    decoded_filename = urllib.parse.unquote(filename)
+    file_path = os.path.join(app.config['CONTENT_FOLDER'], decoded_filename)
+    try:
+        if not os.path.exists(file_path):
+            logger.error(f"Text file not found: {file_path}")
+            return jsonify({'error': 'Text file not found'}), 404
+
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        pdf_path = os.path.join(app.config['CONTENT_FOLDER'], f"{os.path.splitext(decoded_filename)[0]}_converted.pdf")
+        generate_pdf_from_text(content, pdf_path, language='english')
+
+        if not os.path.exists(pdf_path):
+            logger.error(f"PDF not generated: {pdf_path}")
+            return jsonify({'error': 'PDF generation failed'}), 500
+
+        response = send_file(pdf_path, mimetype='application/pdf', as_attachment=True)
+        
+        # Clean up the generated PDF after sending
+        try:
+            os.remove(pdf_path)
+            logger.info(f"Cleaned up generated PDF: {pdf_path}")
+        except Exception as cleanup_error:
+            logger.warning(f"Could not delete generated PDF {pdf_path}: {cleanup_error}")
+
+        return response
+    except Exception as e:
+        logger.error(f"Error serving PDF: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/view_uploaded_pdf/<filename>')
+def view_uploaded_pdf(filename):
+    """Serve uploaded PDF"""
+    decoded_filename = urllib.parse.unquote(filename)
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], decoded_filename)
+    try:
+        if os.path.exists(file_path):
+            return send_file(file_path, mimetype='application/pdf', as_attachment=True)
+        logger.error(f"PDF not found: {file_path}")
+        return jsonify({'error': 'PDF not found'}), 404
+    except Exception as e:
+        logger.error(f"Error serving PDF: {e}")
         return jsonify({'error': str(e)}), 500
 
 @app.route('/generate_slides', methods=['POST'])
@@ -265,7 +329,6 @@ def generate_slides():
                 if os.path.exists(output_txt_path):
                     os.remove(output_txt_path)
                 return
-            
             logger.info("Generating PDF from Gemini response...")
             update_progress(job_id, 'generating_pdf', 90, "Generating PDF...")
             generate_pdf_from_text(response_text, pdf_path, language=language)
@@ -363,7 +426,6 @@ def extract_text_streaming(pdf_file, output_path, start_page, end_page, job_id=N
             
             with open(output_path, mode, encoding='utf-8') as f:
                 total_pages = end_page - start_page
-                
                 for i in range(start_page, min(end_page, len(reader.pages))):
                     if job_id:
                         progress = ((i - start_page + 1) / total_pages) * 100
@@ -537,9 +599,6 @@ def process_pdf_background(pdf_path, txt_path, grade, course, section, language,
         progress_file = os.path.join(app.config['PROGRESS_FOLDER'], f"{job_id}.json")
         if os.path.exists(progress_file):
             os.remove(progress_file)
-        if os.path.exists(pdf_path):
-            os.remove(pdf_path)
-            logger.info(f"Cleaned up uploaded PDF: {pdf_path}")
 
 def generate_pdf_from_text(text, output_path, language='english'):
     """Generate PDF from text - same as original but with better error handling"""
@@ -578,7 +637,6 @@ def generate_pdf_from_text(text, output_path, language='english'):
             if not line.strip():
                 story.append(Spacer(1, 6))
                 continue
-            
             has_arabic = any(0x0600 <= ord(c) <= 0x06FF for c in line)
             has_english = any(c.isascii() and c.isalpha() for c in line)
             

@@ -1,0 +1,1816 @@
+
+--- Page 1 ---
+Complete
+Chemistry
+for Cambridge IGCSE®
+Second Edition
+RoseMarie Gallagher
+Paul Ingram
+Oxford and Cambridge  
+leading education together
+
+
+--- Page 2 ---
+Complete
+Chemistry
+for Cambridge IGCSE®
+Second Edition
+RoseMarie Gallagher
+Paul Ingram
+Oxford and Cambridge  
+leading education together
+
+--- Page 3 ---
+
+Great Clarendon Street, Oxford OX2 6DP
+Oxford University Press is a department of the University of Oxford.  
+It furthers the University’s objective of excellence in research, scholarship,  and education by publishing worldwide in
+Oxford  New York
+Auckland   Cape Town   Dar es Salaam   Hong Kong   Karachi  
+Kuala Lumpur   Madrid   Melbourne   Mexico City   Nairobi  New Delhi   Shanghai   Taipei   Toronto
+With offices in
+Argentina   Austria   Brazil   Chile   Czech Republic   France   Greece  
+Guatemala   Hungary   Italy   Japan   Poland   Portugal   Singapore  South Korea   Switzerland   Thailand   Turkey   Ukraine   Vietnam
+© RoseMarie Gallagher and Paul Ingram 2011
+The moral rights of the authors have been asserted
+Database right Oxford University Press (maker)
+First published as Complete Chemistry (ISBN 9780199147991)
+This edition first published in 2007
+All rights reserved. No part of this publication may be reproduced, stored in a 
+retrieval system, or transmitted, in any form or by any means, without the prior permission in writing of Oxford University Press, or as expressly permitted by law, or under terms agreed with the appropriate reprographics rights organization. Enquiries concerning reproduction outside the scope of the above should be sent to the Rights Department, Oxford University Press, at the address above.
+You must not circulate this book in any other binding or cover and you must 
+impose this same condition on any acquirer
+British Library Cataloguing in Publication Data
+Data available
+ISBN 978-0-19-913878-4
+10 9 8 7 6
+Printed in Malaysia by Vivar Printing Sdn. Bhd.
+Paper used in the production of this book is a natural, recyclable product made 
+from wood grown in sustainable forests. The manufacturing process conforms to the environmental regulations of the country of origin.
+Acknowledgments 
+®IGCSE is the registered trademark of Cambridge International Examinations.
+The publisher would like to thank Cambridge International Examinations for their 
+kind permission to reproduce past paper questions.
+Cambridge International Examinations bears no responsibility for the example 
+answers to questions taken from its past question papers which are contained in this publication. 
+The acknowledgments for the photographs are on page 320.
+
+--- Page 4 ---
+iii
+Introduction
+If you are taking IGCSE chemistry, using the Cambridge International 
+Examinations syllabus 0620, then this book is for you. It covers the syllabus fully, and has been endorsed by the exam board. 
+Finding your way around the book
+The contents list on the next page shows how the book is organised.  Take a look. Note the extra material at the back of the book too: for example the questions from past exam papers, and the glossary. 
+Finding your way around the chapters
+Each chapter is divided into two-page units. Some colour coding is used within the units, to help you use them properly. Look at these notes:
+Core curriculum
+If you are following the Core curriculum, you can ignore any material with a red line beside it.
+Extra material
+Pages of this colour contain extra material for some topics.  We hope that you will find it interesting – but it is not needed for the exam.Extended curriculum
+For this, you need all the material on the white pages, including the material marked with a red line.
+Chapter checkups
+There is a revision checklist  at the end of each chapter,  and also a set of exam-level questions about the chapter,  on a coloured background.
+Making the most of the book and CD
+We want you to understand chemistry, and do well in your exams.  This book, and the CD, can help you. So make the most of them!
+Work through the units
+ The two-page units will help you build up 
+ 
+your knowledge and understanding of the chemistry on your syllabus. Use the glossary
+ If you come across a chemical term that you do not 
+understand, try the glossary
+. You can also use the glossary to test yourself. 
+Answer the questions
+ It is a great way to get to grips with a topic. 
+ 
+This book has lots of questions: at the end of each unit and each chapter, 
+and questions from past exam papers at the end of the book.
+Answers to the numerical questions are given at the back of the book. 
+Your teacher can provide the answers for all the others.
+Use the CD
+ The CD has an interactive test for each chapter
+, advice on 
+revision, sample exam papers, and more. And finally, enjoy!
+ Chemistry is an important and exciting subject. 
+W
+e hope this book will help you to enjoy it, and succeed in your course. 
+RoseMarie Gallagher  
+Paul Ingram
+
+--- Page 5 ---
+Contents
+1.1 Everyth ing is made of particles  6
+1.2 Sol ids, liquids, and gases  8
+1.3 The part icles in solids, liquids, and gases  10
+1.4 A cl oser look at gases  12
+  Checkup on Chapter 1
+ 14
+2.1 Mixtur es, solutions, and solvents  16
+2.2 Pur e substances and impurities  18
+2.3 Separat ion methods (part I)  20
+2.4 Separat ion methods (part II)  22
+2.5 Mor e about paper chromatography  24
+ 
+ The chr
+omatography detectives
+ 26
+  Checkup on Chapter 2
+ 28
+3.1 Atoms and el ements  30
+3.2 Mor e about atoms  32
+3.3 Isotopes and radioact ivity  34
+3.4 How el ectrons are arranged  36
+ 
+ How our model of the atom devel
+oped
+ 38
+ 
+ The atom: the inside story
+ 40
+3.5 The metals and non-metals  42
+  Checkup on Chapter 3
+ 44
+4.1 C ompounds, mixtures, and chemical change  46
+4.2 Wh y do atoms form bonds?  48
+4.3 The ion ic bond  50
+4.4 Mor e about ions  52
+4.5 The c ovalent bond  54
+4.6 C ovalent compounds  56
+4.7 C omparing ionic and covalent compounds  58
+4.8 G iant covalent structures  60
+4.9 The bonding in metals  62
+  Checkup on Chapter 4
+ 64
+5.1 The names and f ormuale of compounds  66
+5.2 Equat ions for chemical reactions  68
+5.3 The masses of atoms, mol ecules. and ions  70
+5.4 Some cal culations about masses and %  72
+  Checkup on Chapter 5
+ 74States of matter
+1
+Separating substances
+2
+Atoms and elements
+3
+Atoms combining
+4
+Reacting masses, and chemical equations
+56.1 The mol e  76
+6.2 Cal culations from equations, using the mole  78
+6.3 React ions involving gases  80
+6.4 The c oncentration of a solution  82
+6.5 F inding the empirical formula  84
+6.6 Fr om empirical to final formula  86
+6.7 F inding % yield and % purity  88
+  Checkup on Chapter 6
+ 90
+7.1 Oxidat ion and reduction  92
+7.2 Redo x and electron transfer  94
+7.3 Redo x and changes in oxidation state  96
+7.4 Oxidising and r educing agents  98
+  Checkup on Chapter 7
+ 100
+8.1 C onductors and insulators  102
+8.2 The principl es of electrolysis  104
+8.3 The r eactions at the electrodes  106
+8.4 The el ectrolysis of brine  108
+8.5 T wo more uses of electrolysis  110
+  Checkup on Chapter 8
+ 112
+9.1 Ener gy changes in reactions  114
+9.2 Expla ining energy changes  116
+9.3 Ener gy from fuels  118
+9.4 G iving out energy as electricity  120
+ 
+ The batteries in y
+our life
+ 122
+9.5 Reversibl e reactions  124
+9.6 Sh ifting the equilibrium  126
+  Checkup on Chapter 9
+ 128
+10.1  Rates of r eaction  130
+10.2  Measuring the rate of a r eaction  132
+10.3  Changing the rate of a r eaction (part I)  134
+10.4  Changing the rate of a r eaction (part II)  136
+10.5  Expla ining rates  138
+10.6  Catal ysts  140
+ 
+ Mor
+e about enzymes
+ 142
+10.7  Photochem ical reactions  144
+  Checkup on Chapter 10
+ 146Using moles
+6
+Redox reactions
+7
+Electricity and chemical change
+8
+Energy changes, and reversible reactions
+9
+The speed of a reaction
+10
+
+--- Page 6 ---
+11.1  Acids and alk alis  148
+11.2  A cl oser look at acids and alkalis  150
+11.3  The r eactions of acids and bases  152
+11.4  A cl oser look at neutralisation  154
+11.5  Oxides  156
+11.6  Making salts  158
+11.7  Making insol uble salts by precipitation  160
+11.8  F inding concentrations by titration  162
+  Checkup on Chapter 11
+ 164
+12.1  An overview of the P eriodic Table  166
+12.2  Gr oup I: the alkali metals  168
+12.3  Gr oup VII: the halogens  170
+12.4  Gr oup 0: the noble gases  172
+12.5  The transit ion elements  174
+12.6  Acr oss the Periodic Table  176
+ 
+ How the P
+eriodic Table developed
+ 178
+  Checkup on Chapter 12
+ 180
+13.1  Metals: a r eview  182
+13.2  C omparing metals for reactivity  184
+13.3  Metals in c ompetition  186
+13.4  The r eactivity series  188
+13.5  Making use of the r eactivity series  190
+  Checkup on Chapter 13
+ 192
+14.1  Metals in the Earth’s crust  194
+14.2  Extract ing metals from their ores  196
+14.3  Extract ing iron  198
+14.4  Extract ing aluminium  200
+14.5  Making use of metals and al loys  202
+14.6  Steels and steel-making  204
+ 
+ Metals, civil
+isation, and you
+ 206
+  Checkup on Chapter 14
+ 208
+15.1  What is a ir?  210
+15.2  Making use of a ir  212
+15.3  Pol lution alert!  214
+15.4  The rust ing problem  216
+15.5  W ater supply  218
+ 
+ Living in space
+ 220
+  Checkup on Chapter 15
+ 222
+16.1  Hy drogen, nitrogen, and ammonia  224
+16.2  Making ammon ia in industry  226Acids and bases
+The Periodic Table
+The behaviour of metals
+Making use of metals
+Air and water
+Some non-metals and their compounds
+16.3  F ertilisers  228
+16.4  Sulfur and sulfur dio xide  230
+16.5  Sulfuric acid  232
+16.6  Carbon and the carbon cy cle  234
+16.7  Some carbon c ompounds  236
+16.8  Gr eenhouse gases, and global warming  238
+16.9  Limestone  240
+  Checkup on Chapter 16
+ 242
+17.1  P etroleum: a fossil fuel  244
+17.2  Refin ing petroleum  246
+17.3  Cracking h ydrocarbons  248
+17.4  F amilies of organic compounds  250
+17.5  The alk anes  252
+17.6  The alk enes  254
+17.7  The al cohols  256
+17.8  The carbo xylic acids  258
+  Checkup on Chapter 17
+ 260
+18.1  Intr oducing polymers  262
+18.2  Addit ion polymerisation  264
+18.3  C ondensation polymerisation  266
+18.4  Making use of synthet ic polymers  268
+18.5  Plast ics: here to stay?  270
+18.6  The macr omolecules in food  (part I)  272
+18.7  The macr omolecules in food  (part II)  274
+18.8  Br eaking down the macromolecules  276
+  Checkup on Chapter 18
+ 278
+19.1  Chem istry: a practical subject  280
+19.2  Ex ample of an experiment  282
+19.3  W orking with gases in the lab  284
+19.4  T esting for ions in the lab  286
+  Checkup on Chapter 19
+ 288
+Answers to the numerical quest
+ions in this book
+ 290
+ 
+Your Cambridge IGCSE chemistry exam
+ 
+ About the Cambridge IGCSE chem
+istry exam
+ 291
+ 
+ Ex
+am questions from Paper 2
+ 292
+ 
+ Ex
+am questions from Paper 3
+ 298
+ 
+ Ex
+am questions from Paper 6
+ 304
+Reference
+  Gl
+ossary
+ 310
+ 
+ The P
+eriodic Table and atomic masses
+ 314
+  Inde
+x
+ 316Organic chemistry
+Polymers
+In the lab
+19181711
+12
+13
+14
+15
+16
+
+--- Page 7 ---
+1.1
+Made of particles
+Rock, air, and water look very different. But they have one big thing in 
+common: they are all made of very tiny pieces, far too small to see.  For the moment, we will call these pieces particles.
+In fact everything around you is made of particles – and so are you!
+Particles on the move
+In rock and other solids, the particles are not free to move around. But in 
+liquids and gases, they move freely. As they move they collide with each other, and bounce off in all directions. 
+So the path of one particle, in a liquid or gas, could look like this:
+ All made of particles!
+from
+heretohere
+The particle moves in a random way, changing direction every time it hits 
+another particle. We call this random motion.
+Some evidence for particles
+There is evidence all around you that things are made of particles, and that they move around in liquids and gases. Look at these examples.
+Evidence outside the lab
+1 Cooking smells can spread out into the street. This 
+is because ‘smells’ are caused by gas particles mixing with, and moving through, the air
+. They dissolve in 
+moisture in the lining of your nose.2  Y ou often see dust and smoke dancing in the air, in 
+bright sunlight. The dust and smoke are clusters of particles. They dance around because they are being bombarded by tiny particles in the air. State S of matter
+6
+Everything is made of particles
+
+--- Page 8 ---
+Diffusion
+In all those examples, particles mix by colliding with each other and 
+bouncing off in all directions. This mixing process is called diffusion. 
+The overall result is the flow of particles from where they are more 
+concentrated to where they are less concentrated, until they are evenly spread out.
+So what are these particles?
+The very smallest particles, that we cannot break down further by chemical means, are called atoms.
+  In some substances, the particles are just single atoms. For example argon,
+ a gas found in air, is made up of single argon atoms.
+  In many substances, the particles consist of two or more atoms joined together
+. These particles are called molecules. Water, bromine, and the 
+gases nitrogen and oxygen in air, are made up of molecules.
+  In other substances the particles consist of atoms or groups of atoms that carry a charge. These particles are called 
+ions. Potassium 
+manganate(VII) is made of ions.
+You’ll find out more about all these particles in Chapters 2 and 3.
+‘Seeing’ particles
+We are now able to ‘see’ the particles in some solids, using very powerful microscopes. For example the image on the right shows palladium atoms sitting on carbon atoms. In this image, the atoms appear over 70 million times larger than they really are!
+ This image was taken using a 
+tunneling electr
+on microscope.  
+The white blobs are palladium atoms,  
+the blue ones are carbon. (The colour was added to help us see them.)
+Q
+1 The particles in liquids and gases show random motion. 
+What does that mean, and why does it occur?
+2 Why does the purple colour spr ead when a crystal of 
+potassium manganate(VII) is placed in water?3 Br omine vapour is heavier than air. Even so, it spreads 
+upwards in the experiment above. Why?
+4 a What is diffusion?   b  Use the idea of dif fusion to 
+explain how the smell of perfume travels.
+water
+particle
+the crystalparticles from
+the crystal mixamong thewater particlesairparticle
+bromine
+particlebromine particles
+and air particlesnow fully mixed
+waterparticle
+the crystalparticles from
+the crystal mixamong thewater particlesairparticle
+bromine
+particlebromine particles
+and air particlesnow fully mixed
+1 Place a crystal of potassium manganate(VII) in a 
+beaker of water
+. The colour spreads through the water. 
+Why? First, particles leave the crystal – it dissolves. 
+Then they mix among the water particles.2  Place an open gas jar of air upside down on an open  
+gas jar containing a few drops of red-brown bromine. The colour spreads upwards because particles of bromine vapour mix among the particles of air.Evidence in the lab
+7State S of matter
+
+--- Page 9 ---
+1.2State S of matter
+8
+Solids, liquids, and gases
+What’s the difference?
+It is easy to tell the difference between a solid, a liquid and a gas:
+Water: solid, liquid and gas
+Water can be a solid (ice), a liquid (water), and a gas (water vapour or 
+steam). Its state can be changed by heating or cooling:
+And when steam is cooled, the opposite changes take place:
+You can see that:
+  condensing is the opposite of evaporating
+  freezing is the opposite of melting
+  the freezing point of water is the same as the melting point of ice, 0  °C.A solid has a fixed shape and a fixed 
+volume. It does not flow. Think of all the solid things around you: their shapes and volumes do not change.A liquid flows easily. It has a fixed volume, but its shape changes. It takes the shape of the container you pour it into.A gas does not have a fixed volume or shape. It spreads out to fill its container. It is much lighter than the same volume of solid or liquid.
+1
+ Ice
+ slowly changes to water, 
+when it is put in a warm place. This change is called melting. The thermometer shows 0
+ °
+C until 
+all the ice has melted. So 0
+ 
+°C is 
+called its melting point.2
+ When the water is heated its 
+temperature rises, and some of it changes to 
+water vapour. This 
+change is called evaporation. The hotter the water gets, the more quickly it evaporates.3
+ Soon bubbles appear in the 
+water
+. It is boiling. The water 
+vapour shows up as steam. The thermometer stays at 100
+ °
+C 
+while the water boils off. 100
+ 
+°C is 
+the boiling point of water.
+steam condenses to form watercool below 100 °C freezes  or solidiﬁes
+to form icecool below 0 °Cthermometer
+shows 0 °C
+ice cubes meltingwater vapour
+water
+heatwater vapour(invisible)
+steam(visible)thermometershows 100°C
+boiling water
+heat
+
+--- Page 10 ---
+Q
+1 W rite down two properties of a solid, two of a liquid, and 
+two of a gas.
+2 Which wor d means the opposite of:
+ a
+ 
+boiling?
+     
+b
+ 
+melting? 
+3 Which has a lower fr eezing point, oxygen or ethanol?
+4 Which has a higher boiling point, oxygen or ethanol?5 Look at the heating curve above. 
+ a
+  About how long did it take for the ice to melt, once 
+melting started?
+ b
+ How long did boiling take to complete, once it started?
+ c
+ T
+ry to think of a reason for the difference in a and b.
+6 See if you can sketch a heating curve for sodium.
+9State S of matter
+Other things can change state too
+It’s not just water! Nearly all substances can exist as solid, liquid and gas. 
+Even iron and diamond can melt and boil! Some melting and boiling points are given below. Look how different they are.
+Showing changes of state on a graph
+Look at this graph. It shows how the temperature changes as a block of ice is steadily heated. First the ice melts to water. Then the water gets warmer and warmer, and eventually turns to steam: 
+A graph like this is called a heating curve. 
+Look at the step where the ice is melting. Once melting starts, the 
+temperature stays at 0
+ 
+°C until all the ice has melted. When the water 
+starts to boil, the temperature stays at 100
+ 
+°C until all the water has turned 
+to steam. So the melting and boiling points are clear and sharp.Substance Melting point  / °C Boiling point  / °C
+oxygen –219 –183
+ethanol –15 78
+sodium 98 890
+sulfur 119 445
+iron 1540 2900
+diamond 3550 4832
+Heating curve for water
+0123456789 10
+Time (minutes)150
+125100
+755025
+0
+/H1100225water boilingwater
+vapourgettinghotter
+ice warming upice
+meltingTemperature (°C)water warming up
+(some evaporation occurs)
+ Molten ir on being poured out at an 
+iron works. Hot – over 1540
+ 
+°C!
+ Evaporation in the sunshine …
+
+
+--- Page 11 ---
+1.3
+How the particles are arranged
+Water can change from solid to liquid to gas. Its particles do not change. 
+They are the same in each state. But their arrangement changes.  The same is true for all substances.
+Changing state
+Melting  When a solid is heated, its particles get more energy and vibrate  
+more. This makes the solid expand. At the melting point, the 
+ particles vibrate
+ 
+so much that they break away from their positions. The solid turns liquid.State How the particles are arranged Diagram of particles
+Solid
+  
+The particles in a solid are arrangedin a fixed pattern or lattice.Strong forces hold them together.So they cannot leave their positions.The only movements they make aretiny vibrations to and fro.
+Liquid
+ 
+The particles in a liquid can move about and slide past each other. They are still close together, but not in a lattice. The forces that hold them together are weaker than in a solid.
+Gas
+ 
+The particles in a gas are far apart,  and they move about very quickly. There are almost no forces holding them 
+ together
+. They collide with each 
+other and bounce off in all directions.
+solid the vibrations get larger a liquid is formedheat
+energyheat energy at
+melting pointState S of matter
+10
+The particles in solids, liquids, and gases
+
+--- Page 12 ---
+the particles get enough
+energy to escape slow-moving particlesin liquid the particlesmove fasterheat energy at
+boiling pointheat
+energyBoiling  When a liquid is heated, its particles get more energy and move  
+faster. They bump into each other more often, and bounce further apart. This 
+makes the liquid expand. At the boiling point, the particles get enough energy to overcome the forces between them. They break away to form a gas:
+Evaporating
+ Some particles in a liquid have more energy than others. 
+Even well below the boiling point, some have enough energy to escape 
+and form a gas. This is called 
+evaporation. It is why 
+ puddles of rain dry 
+up in the sun.
+How much heat is needed?
+The amount of heat needed to melt or boil a substance is different for every substance. That’s because the particles in each substance are different, with different forces between them. 
+The stronger the forces, the more heat energy is needed to overcome 
+them. So the higher the melting and boiling points will be.
+Reversing the changes
+You can reverse those changes again by cooling. As a gas cools, its particles lose energy and move more slowly. When they collide, they do not have enough energy to bounce away. So they stay close, and form a liquid. On further cooling, the liquid turns to a solid. 
+Look at this diagram for water:
+ice (solid) water (liquid)on heating, the particles gain energy
+on cooling, the particles lose energy and move more slowly;
+as they get closer together the forces of attraction take overmelts
+at 0° Csteam (gas)as it warms up, some evaporates ;
+the rest boils at 100° C
+ice waterfreezes (solidiﬁes)
+at 0° Csteamas you cool it below 100°C, the water
+vapour begins to condense or liquify
+Q
+1 Using the idea of particles, explain why:
+ a
+ you can pour liquids
+  
+b
+ solids expand on heating 
+2 Draw a diagram to show what happens to the particles, 
+when a liquid cools to a solid.3 Oxygen is the gas we br eathe in. It can be separated from 
+the air. It boils at –219
+ 8
+C and freezes at –183
+ 8
+C.
+ a
+ In which state is oxygen, at:
+  
+i
+ 0
+ 8
+C?
+  
+ii
+ –200
+ 8
+C?
+ b
+ How would you tur
+n oxygen gas into solid oxygen?
+!The kinetic particle theory
+Look at the key ideas you have met:
+ A substance can be a solid, a liquid, or a gas, and change from one state to another.
+ It has different characteristics in each state. (For example, solids do not flow.)
+ The differences are due to the way its particles are arranged, and move, in each state. 
+Together, these ideas make up the kinetic particle theory. (Kinetic means about motion.)
+11State S of matter
+
+--- Page 13 ---
+1.4State S of matter
+12
+A closer look at gases
+What is gas pressure?
+When you blow up a balloon, you fill it with air particles. They collide 
+with each other. They also hit the sides of the balloon, and exert pressure on it. This pressure keeps the balloon inflated. 
+In the same way, all gases exert a pressure. The pressure depends on the 
+temperature of the gas and the volume it takes up, as you’ll see below.
+When you heat a gas
+The same happens with all gases: When you heat a gas in a closed container, its pressure increases.  That is why the pressure gets very high inside a pressure cooker.
+When you squeeze a gas into a smaller space
+The same thing is true for all gases: When a gas is compressed into a smaller space, its pressure increases.
+All gases can be compressed. If enough force is applied, the particles can  
+be pushed so close that the gas turns into a liquid. But liquids and solids cannot be compressed, because their particles are already very close together.The particles in this gas are moving fast. They hit the walls of the container and exert pressure on them. If you now heat the gas . . .. . . the particles take in heat energy and move even faster. They hit the walls more often, and with more force. So the gas pressure increases.
+plunger pushed in
+gas compressed
+into a smallervolumegas particlesplunger pushed in
+gas compressed
+into a smallervolumegas particles
+There is a lot of space between the 
+particles in a gas. You can compress  
+the gas, or force its particles closer, by pushing in the plunger …… like this. Now the particles are in a smaller space – so they hit the walls more often. So the gas pressure increases.
+ In a pr essure cooker, water vapour 
+(gas) is heated to well over 100
+ 
+°C. So it 
+is at high pressure. You must let a 
+pressure cooker cool before you open it!
+ When you blow up a bicycle tyr e, 
+you compress air into the inner tube. The har der you blow, the greater the 
+pressure inside the balloon.
+
+
+--- Page 14 ---
+13State S of matter
+ The scent of flowers travels faster in 
+a warm r
+oom. Can you explain why?
+ The faster a particle is moving when 
+it hits another
+, the faster and further it 
+will bounce away. Just like snooker balls!The rate of diffusion of gases
+On page 7 you saw that gases diffuse because the particles collide with 
+other particles, and bounce off in all directions. But gases do not all diffuse at the same rate, every time. It depends on these two factors:
+1
+ The mass of the particles
+ 
+The particles in hydrogen chloride gas are twice as heavy as those in 
+ammonia gas. So which gas do you think will dif
+fuse faster? Let’s see:
+  Cotton wool soaked in ammonia solution is put into one end of a long tube (at A below). It gives of
+f ammonia gas.
+  At the same time , cotton wool soaked in hydrochloric acid is put into 
+the other end of the tube (at B). It gives off hydrogen chloride gas.
+  The gases dif fuse along the tube. White smoke forms where they meet:
+The white smoke forms closer to B. So the ammonia particles have travelled further than the hydrogen chloride particles – which means they have travelled faster. The lower the mass of its particles, the faster a gas will diffuse.
+That makes sense when you think about it. When particles collide and 
+bounce away, the lighter particles will bounce further.
+The particles in the two gases above are molecules. The mass of a 
+molecule is called its relative molecular mass. So we can also say: The lower its relative molecular mass, the faster a gas will diffuse.
+2
+ The temperature
+ 
+When a gas is heated, its particles take in heat energy
+, and move faster. 
+They collide with more energy, and bounce further away. So the gas 
+diffuses faster. The higher the temperature, the faster a gas will diffuse.AB
+cotton wool soaked
+in ammonia solutionglass
+tubewhite smoke
+forms herecotton wool soakedin hydrochloric acid
+Q
+1 What causes the pressure in a gas?
+2 Why does a balloon burst if you keep on blowing?
+3  A gas is in a sealed container . How do you think the  
+pressure will change if the container is cooled?  
+Explain your answer.
+4  A gas flows fr om one container into a larger one.  
+What do you think will happen to its pressure?  Draw diagrams to explain.5 a Why does the scent of perfume spr ead?
+ b
+  Why does the scent of perfume wear of
+f faster in warm 
+weather than in cold?
+6  Of all gases, hydr ogen diffuses fastest at any given 
+temperature. What can you tell from this?
+7  Look at the glass tube above. Suppose it was warmed a little in an oven, befor
+e the experiment. Do you think that would 
+change the result? If so, how?
+
+--- Page 15 ---
+Checkup on Chapter 1
+Questions
+Core curriculum
+1 A large crystal of potassium manganate(VII) was 
+placed in the bottom of a beaker of cold water
+, and 
+left for several hours.
+ cold water
+crystal of potassium manganate(VII)
+ a Describe what would be seen:
+  
+i
+ after five minutes
+  
+ii
+ after several hours
+ b
+ Explain your answers using the idea of particles.
+ c
+  Name the two processes that took place during the experiment.
+2
+ Use the idea of particles to explain why:
+ a
+ solids have a definite shape
+ b
+ liquids fill the bottom of a container
+ c
+ you can’
+t store gases in open containers
+ d
+  you can’
+t squeeze a sealed plastic syringe that is 
+completely full of water
+ e
+ a balloon expands as you blow into it.
+3
+  Below is a heating curve for a pure substance. It shows how the temperature rises over time, when the substance is heated until it melts, then boils.
+ 
+ a What is the melting point of the substance?
+ b
+  What happens to the temperature while the substance changes state?
+ c
+  The graph shows that the substance takes longer to boil than to melt. Suggest a reason for this.
+ d  How can you tell that the substance is not water?
+ f
+ Sketch a rough heating curve for pure water
+.Revision checklist
+Core curriculum
+Make sure you can …
+ give two examples of evidence, from the lab, that   
+matter is made of particles
+ explain what diffusion is, and how it happens
+ name the three states of matter , and give their   
+physical properties (hard, fixed shape, and so on)
+ describe, and sketch, the particle arrangement in   
+each state
+ describe how a substance changes state when you   
+heat it, and explain this using the idea of particles
+ explain, and use, these terms:  
+ 
+melt
+ boil
+ evaporate
+ condense 
+ melting point
+ boiling point
+ freezing point
+ sketch, and label, a heating curve
+ explain why a gas exerts a pressure
+ explain why the pressure increases when you:
+ 
+–
+ heat a gas
+ 
+–
+ push it into a smaller space
+Extended curriculum
+Make sure you can also …
+ describe an experiment to show that a gas will  
+diffuse faster than another gas that has heavier particles 
+ say how , and why, the temperature affects the rate 
+at which a gas diffusesState S of matter
+14
+
+
+--- Page 16 ---
+4 A cooling curve  is the opposite of a heating curve. 
+It shows how the temperature of a substance 
+changes with time, as it is cooled from a gas to a solid. Here is the cooling curve for one substance:
+ 
+ a  What is the state of the substance at room temperature (20 
+ 
+°C)?
+ b
+  Use the list of melting and boiling points on page 9 to identify the substance.
+ c
+ Sketch a cooling curve for pure water
+. 
+5
+ Using the idea of particles explain why:
+ a the smell of burnt food travels through the house
+ b
+  when two solids are placed on top of each other
+, 
+they do not mix
+ c
+ pumping up your bike tyres gives a smooth ride
+ d
+ smokers can cause lung damage in other people
+ 
+e
+  heating a gas in a closed container will increase its pressure
+ f
+ 
+  a liquid is used in a car’
+s breaking system, to 
+transfer the pressure from the brake pedal
+ g
+  poisonous gases from a factory chimney can af
+fect a large area.
+6 
+ a
+ Which of these are examples of dif
+fusion?
+  
+i
+ a helium-filled balloon rising in air 
+  
+ii
+  a hydrogen-filled balloon deflating, due to gas passing through the skin
+  
+iii
+  the smell of perfume from a person standing on the other side of a room
+  
+iv
+  sucking a drink from a bottle, using a straw 
+  v
+  an ice lolly turning liquid when it is left out of the freezer
+  
+vi
+  the tea in the cup changing colour when you
+ add milk, without stirring
+  
+vii
+  a light, coloured gas, spreading down through a gas jar 
+  
+viii
+  a blue crystal forming a blue solution, when it is left sitting in a glass of water
+  
+ix
+ spraying paint from a spray can. 
+ b
+  For 
+one of the examples of diffusion, draw a 
+diagram showing the particles before and after diffusion has taken place.Extended curriculum
+7 Y ou can measure the rate of diffusion of a gas 
+using this apparatus. The gas enters through the thin tube: 
+ air H2
+plug of
+porous plasterhydrogengas (H
+2) in
+water risingin tube
+water0
+10
+203040
+ The measuring tube is sealed at the top with a plug 
+of porous plaster
+. Air and other gases can diffuse in 
+and out through the tiny holes in the plug. 
+ The water rises in the measuring tube if the chosen gas dif
+fuses out through the plug faster than air 
+diffuses in. Air is mainly nitrogen and oxygen.
+ 
+a
+  When you use hydrogen gas, the water rises in the measuring tube. Why?
+ b  What does this tell you about the rate of dif
+fusion 
+of hydrogen, compared to the gases in air?
+ c
+  Explain your answer to 
+b. Use the term mass! 
+ d
+  The molecules in carbon dioxide are heavier than those in nitrogen and oxygen. 
+   So what do you think will happen to the water in the measuring tube, when you use carbon dioxide? Explain your answer
+.
+8
+ Gas Formula Relative atomic or  
+molecular mass
+methane CH4 16
+helium He 4
+oxygen O2 32
+nitrogen N2 28
+chlorine Cl2 71
+ Look at the table above.
+ a
+ Which two gases will mix fastest? Explain.
+ b
+  Which gas will take least time to escape from a gas syringe?
+ c
+  W
+ould you expect chlorine to diffuse more 
+slowly than the gases in air? Explain.
+ d
+  An unknown gas dif
+fuses faster than nitrogen, 
+but more slowly than methane. What you can say about its relative molecular mass?State S of matter
+15
+
+--- Page 17 ---
+2.1
+Mixtures
+A mixture contains more than one substance. The substances are just 
+mixed together, and not chemically combined. For example:
+ air is a mixture of nitrogen, oxygen, and small amounts of other gases
+ shampoo is a mixture of several chemicals and water .
+Solutions
+When you mix sugar with water, the sugar seems to disappear. That is because its particles spread all through the water particles, like this:
+The sugar has dissolved in the water, giving a mixture called a solution. Sugar is the solute, and water is the solvent:
+solute 1 solvent 5 solutionYou can’t get the sugar out again by filtering.
+Not everything dissolves so easily
+Now think about chalk. If you mix chalk powder with water, most of the 
+powder eventually sinks to the bottom. You can get it out again by filtering.
+Why is it so different for sugar and chalk? Because their particles are very different! How easily a substance dissolves depends on the particles in it. Look at the examples in this table:
+Compound Mass (g) dissolving in 100 g of water at 25  °C
+silver nitrate 241.3
+calcium nitrate 102.1
+sugar (glucose) 91.0
+potassium nitrate 37.9
+potassium sulfate 12.0
+calcium hydroxide 0.113
+calcium carbonate (chalk) 0.0013
+silver chloride 0.0002
+So silver nitrate is much more soluble than sugar – but potassium nitrate is a lot less soluble than sugar. It all depends on the particles.
+Look at calcium hydroxide. It is only very slightly or sparingly soluble 
+compared with the compounds above it. Its solution is called limewater.
+Now look at the last two substances in the table. They are usually called 
+insoluble since so very little dissolves.decreasing
+solubility
+ A mixtur e of sugar and water. 
+This mixture is a solution.
+ A mixtur e of chalk powder and 
+water. This is not a solution. The tiny 
+chalk particles do not separate and spread through the water particles. They stay in clusters big enough to see. In time, most sink to the bottom.
+!What’s soluble, what’s not?
+ The solubility of every substance is 
+dif
+ferent.
+ But there are some overall patterns. For example all sodium compounds are soluble.
+ Find out more on page 160.Separating 
+S
+ub
+S
+tance
+S
+16
+Mixtures, solutions, and solvents
+
+--- Page 18 ---
+waterstirring rod sugarHelping a solute dissolve
+Q
+1 Explain each term in your own wor ds:
+ a
+ soluble
+ b
+ insoluble
+ c
+ aqueous solution
+2 Look at the table on page 16.
+ a
+  Which substance in it is the most soluble?
+ b
+  About how many times mor
+e soluble is this substance 
+than potassium sulfate, at 25
+ 
+°C?
+ c
+  The substance in 
+a gives a colourless solution. What will 
+you see if you add 300 g of it to 100 g of water at 25
+ °C?
+ d
+  What will you see if you heat up the mixtur
+e in c?3 Now turn to the table at the top of page 160.
+ a
+  Name two metals that have 
+no insoluble salts.
+ b
+  Name one other gr
+oup of salts that are always soluble.
+4 See if you can give three examples of:
+ a
+  solids you dissolve in water
+, at home
+ b
+  insoluble solids you use at home.
+5 Name two solvents other than water that are used in the 
+home. What are they used for?
+6 Many gases dissolve in water. Try to give some examples.Sugar dissolves quite slowly in 
+water at room temperature. If you stir the liquid, that helps. But if you keep on adding sugar …… eventually no more of it will dissolve, no matter how hard you stir. The extra sinks to the bottom. The solution is now saturated.But look what happens if you heat the solution. The extra sugar dissolves. Add more sugar and it will dissolve too, as the temperature rises.
+So sugar is more soluble in hot water than in cold water.
+A soluble solid usually gets more soluble as the temperature rises.A solution is called saturated when it can dissolve no more solute, at 
+that temperature.
+Water is not the only solvent
+Water is the world’s most common solvent. A solution in water is called an aqueous solution (from aqua, the Latin word for water).
+But many other solvents are used in industry and about the house, to 
+dissolve substances that are insoluble in water. For example:
+Solvent It dissolves
+white spirit gloss paint
+propanone (acetone) grease, nail polish
+ethanol glues, printing inks, the scented substances that are used  
+in perfumes and aftershaves
+All three of these solvents evaporate easily at room temperature – they are 
+volatile. This means that glues and paints dry easily. Aftershave feels cool because ethanol cools the skin when it evaporates.extra sugar sinks
+to bottomall the sugarhas dissolved
+heat
+!About volatile liquids
+ A volatile  liquid is one that evaporates easily. 
+ This is a sign that the for ces between its particles are weak.  
+ So volatile liquids have low boiling points too. (Pr opanone boils at 56.5 °C.)
+17Separating SubStance S
+ Nail polish is insoluble in water .  
+It can be removed later by dissolving  
+it in propanone.
+
+
+--- Page 19 ---
+2.2Separating SubStance S
+18
+Pure substances and impurities
+What is a pure substance?
+water 
+particlewater particle water particle
+This is water. It has only water 
+particles in it, and nothing else. So it is 100% pure. This water has particles of other substances mixed with it. So it is not pure.This water has particles of a harmful substance in it. So it is not pure – and could make you ill.
+A pure substance has no particles of any other substance mixed with it.
+In real life, very few substances are 100% pure. For example tap water 
+contains small amounts of many different particles (such as calcium ions and chloride ions). The particles in it are not usually harmful – and some are even good for you.
+Distilled water is much purer than tap water, but still not 100% pure.  
+For example it may contain particles of gases, dissolved from the air. 
+Does purity matter?
+Often it does not matter if a substance is not pure. We wash in tap water, without thinking too much about what is in it. But sometimes purity is very important. If you are making a new medical drug, or a flavouring for food, you must make sure it contains nothing that could harm people.
+An unwanted substance, mixed with the substance you want, is called  
+an impurity.
+ Baby foods and milk powder ar e tested in the factory, to 
+make sure they contain no harmful impurities. Getting r eady for a jab. Vaccines and medicines must be 
+safe, and free of harmful impurities. So they are tested heavily.
+
+--- Page 20 ---
+These are the melting and boiling 
+points for two pure substances: sulfur and water.This sulfur sample melts sharply at 119
+ 
+°C and boils at 445
+ 
+°C. So it 
+must be pure.This water freezes around 20.5  °C 
+and boils around 101
+ 
+°C. So it is 
+not pure.
+Q
+1 What does a pure substance mean?
+2 Y ou mix instant coffee with water, to make a cup of coffee. 
+Is the coffee an impurity? Explain.3 Explain why melting and boiling points can be used as a way 
+to check purity
+.
+4 Could ther e be impurities in a gas? Explain.
+!ID check!
+  Every substance has a unique pair of melting and boiling points. 
+  So you can also use melting and boiling points to identify a substance. 
+  First, measure them. Then look up data tables to find out what the substance is.
+19Separating SubStance S
+ At the end of this r eaction, the 
+beaker may contain several products, 
+plus reactants that have not reacted. Separating them can be a challenge!
+How can you tell if a substance is pure?
+Chemists use some complex methods to check purity. But there is one 
+simple method you can use in the lab: you can check melting and boiling points.
+  A pure substance has a definite, sharp, melting point and boiling point.  
+These are different for each substance. You can look them up in tables. 
+ When a substance contains an impurity:
+ –
+ its melting point falls and its boiling point rises
+ –
+ it melts and boils over a range of temperatures, not sharply
+. 
+ The more impurity there is:
+ –
+ the bigger the change in melting and boiling points
+ –
+  the wider the temperature range over which melting and boiling occur
+. 
+For example:
+Substance sulfur water
+Melts at (
+ 
+°C) 119 0
+Boils at (
+ 
+°C) 445 100
+Separation: the first step in obtaining a pure substance
+When you carry out a reaction, you usually end up with a mixture of 
+substances. Then you have to separate the one you want. 
+The table below shows some separation methods. These can give quite 
+pure substances. For example when you filter off a solid, and rinse it well with distilled water, you remove a lot of impurity. But it is just not possible to remove every tiny particle of impurity, in the school lab.
+Method of separation Used to separate…
+filtration a solid from a liquid
+crystallisation a solute from its solution
+evaporation a solute from its solution
+simple distillation a solvent from a solution
+fractional distillation liquids from each other
+paper chromatography different substances from a solution
+There is more about these methods in the next three units.
+
+--- Page 21 ---
+2.3
+!Saturated solutions
+ Remember , most solutes get more 
+soluble as the temperature rises – 
+so less soluble as it falls!
+ A saturated solution can hold no mor
+e solute, at that temperature. Separating 
+S
+ub
+S
+tance
+S
+20
+Separation methods (part I)
+For example, chalk is insoluble in water. So it is easy to separate by filtering. 
+The chalk is trapped in the filter paper, while the water passes through. The trapped solid is called the residue. The water is the filtrate.
+1
+ This is a solution of copper(II) 
+sulfate in water
+. You want to obtain 
+solid copper(II) sulfate from it.2
+ So you heat the solution to 
+evaporate some of the water
+. It 
+becomes more concentrated.3
+ Eventually the solution becomes 
+saturated
+. If you cool it now, 
+crystals will start to form. 
+4 Check that it is ready by placing a
+ 
+drop on a microscope slide.
+ Crystals
+ 
+will form quickly on the cool glass.5
+ Leave the solution to cool. 
+Crystals start to form in it, as the temperature falls.6
+ Remove the crystals by filtering.
+ 
+Then rinse them with distilled water and dry them with filter paper.ﬁlter paper
+ﬁlter funnel
+ﬂaskchalk (the residue)
+water (the ﬁltrate)suspension of
+chalk in water
+heat heat heat heat heat heat
+blue crystalsof copper(II)sulfate
+dilute copper (II)
+sulfate solutionglass ro d
+microscopeslide2 By cry stallisation
+You can obtain many solids from their solutions by letting crystals form. 
+The process is called crystallisation. It works because soluble solids tend to be less soluble at lower temperatures. For example:Separating a solid from a liquid
+Which method should you use? It depends on whether the solid is dissolved, and how its solubility changes with temperature.
+1 By filtering
+ Filtering in the kitchen …
+
+--- Page 22 ---
+Q
+1 What does this term mean?  Give an example.
+ a
+ 
+filtrate
+ b
+ r
+esidue
+2 Y ou have a solution of sugar in water. You want to obtain 
+the sugar from it.
+ a
+ Explain why filtering will not work.
+ b
+ Which method will you use instead?3 Describe how you would crystallise potassium nitrate fr om 
+its aqueous solution.
+4 How would you separate salt and sugar? Mention any 
+special safety pr
+ecaution you would take.
+5 Now see if you can think of a way to get clean sand fr om a 
+mixture of sand and little bits of iron wire.
+21Separating SubStance S
+ Making a living fr om crystallisation. 
+Seawater is led into shallow ponds.  
+The water evaporates in the sun.  He collects the sea salt, and sells it.
+To obtain salt from an aqueous 
+solution, you need to keep heating the solution, to evaporate the water. When there is only a little water left, the salt will start to appear. Heat carefully until it is dry.
+ Evaporating the water fr om a 
+solution of salt in water.
+ Evaporating the ethanol fr om a 
+solution of sugar in ethanol, over a 
+water bath.
+evaporating
+dish
+salt solution
+the water evaporates
+leaving the salt behindheatevaporating
+dish
+salt solution
+the water evaporates
+leaving the salt behindheat3 By evaporat ing all the solvent
+For some substances, the solubility changes very little as the temperature 
+falls. So crystallisation does not work for these. Salt is an example.
+Separating a mixture of two solids
+To separate two solids, you could choose a solvent that will dissolve just one of them. 
+For example, water dissolves salt but not sand. So you could separate a 
+mixture of salt and sand like this:
+1
+ Add water to the mixture, and stir
+. The salt dissolves.
+2
+  Filter the mixture. The sand is trapped in the filter paper
+, but the salt  
+solution passes through.
+3
+ Rinse the sand with water
+, and dry it in an oven.
+4
+ Evaporate the water from the salt solution, to give dry salt.
+W
+ater could not be used to separate salt and sugar, because it dissolves 
+both. But you could use ethanol, which dissolves sugar but not salt. Ethanol 
+is flammable, so should be evaporated over a water bath, as shown here.
+
+--- Page 23 ---
+2.4Separating SubStance S
+22
+Separation methods (part II)
+water out
+condenser
+salt water
+water in
+distilled waterheat
+fractionating
+column packedwith glass beads
+ethanol
+ethanol and waterthermometer
+condenserwater out
+water in
+heat
+ A petr oleum refinery. It produces 
+petrol and many other useful substances, 
+with the help of fractional distillation.
+Simple distillation
+This is a way to obtain the solvent from a solution.  
+The apparatus is shown on the right. It could be used to  obtain water from salt water, for example. Like this:
+1
+  Heat the solution in the flask. As it boils, water 
+ 
+vapour rises into the condenser, leaving salt behind.
+2
+ The condenser is cold, so the vapour condenses to 
+ 
+ water in it.
+3
+  The water drips into the beaker
+. It is called distilled  
+water. It is almost pure. 
+You could get drinking water from seawater, in this way. 
+Many countries in the Middle East obtain drinking water  by distilling seawater in giant distillation plants. 
+Fractional distillation
+This is used to separate a mixture of liquids from each other. It makes use of their different boiling points. You could use it to separate a mixture of ethanol and water, for example. The apparatus is shown on the right. 
+These are the steps:1
+  Heat the mixture in the flask. At about 78
+ °C, the ethanol 
+begins to boil. Some water evaporates too. So a mixture of 
+ethanol and water vapours rises up the column.
+2
+  The vapours condense on the glass beads in the column, making them hot.
+3
+  When the beads reach about 78
+ °C, ethanol vapour no longer 
+condenses on them. Only the water vapour does. So water drips back into the flask. The ethanol vapour goes into the condenser
+.
+4
+  There it condenses. Pure liquid ethanol drips into the beaker
+.
+5
+  Eventually
+, the thermometer reading rises above 78 
+ °C – 
+ 
+a sign that all the ethanol has gone. So you can stop heating.
+Fractional distillation in industry
+Fractional distillation is very important in industry. It is used:
+  in the petroleum industry , to refine crude oil into petrol and 
+other groups of compounds. The oil is heated and the vapours rise to different heights, up a tall steel fractionating column.  See page 247.
+  in producing ethanol . The ethanol is made by fermentation, 
+using sugar cane or other plant material. It is separated from the fermented mixture by fractional distillation. Ethanol is used as a solvent, and as car fuel. See page 256.
+  to separate the gases in air. The air is cooled until it is liquid, 
+then warmed up. The gases boil off one by one. See page 212.
+
+--- Page 24 ---
+Q
+1 How would you obtain pur e water from seawater?
+ Draw the apparatus, and explain how the method works.
+2 Why ar e condensers called that? What is the cold water for?
+3 Y ou would not use exactly the same apparatus you 
+described in 1, to separate ethanol and water. Why not?4 Explain how fractional distillation works.
+5 In the last chr omatogram above, how can you tell that X 
+does not contain substance C?
+6 Look at the first chr omatogram above. Can you think of a 
+way to separate the coloured substances from the paper?
+23Separating SubStance S
+ﬁlter paperdropper with ink dropper with water
+colours begin
+to separate
+ﬁlter paperdropper with ink dropper with water
+colours begin
+to separateblue ring
+red ring yellow ring
+pencil line
+XA BC D XA BC Dglass tank with lid
+clip
+propanonepencil line
+XA BC D XA BC Dglass tank with lid
+clip
+propanonepencil line
+XA BC D XA BC Dglass tank with lid
+clip
+propanonePaper chromatography
+This method can be used to separate a mixture of substances.  
+For example, you could use it to find out how many different dyes there are in black ink: 
+1
+ Place a drop of black ink in the
+ 
+centre of some filter paper. Let it dry. 
+Then add three or four more drops on the same spot, in the same way.2
+ Now drip water onto the ink 
+spot, one drop at a time. The ink slowly spreads out and separates into rings of dif
+ferent colours.3
+ Suppose there are three rings: 
+yellow
+, red and blue. This shows 
+that the ink contains three dyes, coloured yellow, red and blue.
+1
+ Prepare concentrated solutions 
+of 
+X, A, B, C, and D, in propanone. 
+Place a spot of each along a line, on chromatography paper. Label them.2
+ Stand the paper in a little
+ 
+propanone, in a covered glass tank. The solvent rises up the paper. When it’s near the top, remove the paper.3
+ X has separated into three spots.
+ 
+Two are at the same height as A  and 
+B, so X  must contain substances A 
+and B. Does it also contain C  and D ?The dyes in the ink have different solubilities in water. So they travel across the paper at different rates. (The most soluble one travels fastest.) That is why they separate into rings. The filter paper with the coloured rings is called a chromatogram. (Chroma means colour.)
+Paper chromotography can also be used to identify substances. For 
+example, mixture X is thought to contain substances A, B, C, and D, which are all soluble in propanone. You could check the mixture like this:
+Note that you must use a pencil to draw the line on the chromatography 
+paper. If you use a biro or felt-tipped pen, the ink will run.
+
+--- Page 25 ---
+2.5Separating SubStance S
+24
+More about paper chromatography
+How paper chromatography works
+Paper chromatography depends on how the substances in a mixture 
+interact with the chromatography paper and the solvent. 
+chromatography paper
+1 These coloured dots represent  
+a mixture of two substances.  The mixture is dissolved in a suitable solvent.2
+ The two substances travel over  
+the paper at different speeds, because of their different solubilities in the solvent, and attraction to the paper.3
+  Eventually they get completely 
+separated from each other
+. Now 
+you can identify the substances – and even collect them if you wish.
+ The five mystery solutions.The more soluble a substance is in the solvent, the further it will travel up the chromatography paper.
+Making use of paper chromatography
+You can use paper chromatography to:
+  identify a substance 
+  separate mixtures of substances
+  purify a substance, by separating it from its impurities.
+Example: Identify substances in a colourless mixture
+On page 23, paper chromatography was used to identify coloured substances. Now for a bigger challenge!
+Test-tubes A
+ 
+–
+ 
+E on the right below contain five colourless solutions of 
+amino acids, dissolved in water. The solution in A contains several 
+amino acids. The other solutions contain just one each. 
+Your task is to identify all the amino acids in A
+ 
+–
+ 
+E. 
+ 
+1
+  Place a spot of each solution along a line drawn in pencil on  
+slotted chromatography paper
+, as shown below. (The purpose  
+of the slots is to keep the samples separate.)  Label each spot in pencil at the top of the paper.
+ Amino acids coming up! When you 
+digest food, the pr
+oteins in it are broken 
+down to amino acids. Your body needs 
+20 different amino acids to stay healthy.
+
+--- Page 26 ---
+Q
+1 Explain in your own wor ds how paper chromatography 
+works.
+2 a What do you think a locating agent is?
+ b
+  Why would you need one, in an experiment to separate 
+amino acids by chr
+omatography?
+3 What makes Rf values so useful? 4 For the chr omatogram above:
+ a
+  W
+ere any of the amino acids in B
+ 
+–
+ 
+E also present in A? 
+How can you tell at a glance?
+ b
+  Using a ruler
+, work out the Rf values for the amino acids 
+in A
+ 
+–
+ 
+E.
+ c
+ Now use the 
+Rf table above to name them.
+25Separating SubStance S
+ﬁnal
+solvent level
+starting pointABC DE
+ 2  Place a suitable solvent in the bottom of a beaker . (For amino acids,  
+a mixture of water, ethanoic acid and butanol is suitable.)
+ 3
+  Roll the chromatography paper into a cylinder and place it in the 
+beaker
+. Cover the beaker.
+ 4
+  The solvent rises up the paper
+. When it has almost reached the top, 
+remove the paper.
+ 
+5
+  Mark a line in pencil on it, to show where the solvent reached. (Y
+ou 
+can’t tell where the amino acids are, because they are colourless.)
+ 6
+ Put the paper in an oven to dry out.
+ 7
+  Next spray it with a 
+locating agent to make the amino acids show up. 
+Ninhydrin is a good choice. (Use it in a fume cupboard!) After spraying, heat the paper in the oven for 10 minutes. The spots turn purple. So now you have a proper chromatogram. 
+ 8
+  Mark a pencil dot at the centre of each spot. Measure from the base line to each dot, and to the line showing the final solvent level.
+ 9
+ Now work out the 
+Rf value for each amino acid. Like this:
+  Rf value 5   distance moved by amino acid    _______________________________    distance moved by solvent  
+ 
+10
+  Finally
+, look up Rf tables to identify the amino acids.  
+Part of an Rf table for the solvent you used is shown on the right.  
+The method works because: the Rf value of a compound is always 
+the same for a given solvent, under the same conditions.Rf values for amino acids  
+(for water
+ 
+/
+ 
+butanol
+ 
+/
+ 
+ethanoic acid 
+as solvent)
+amino acid Rf value
+cysteine 0.08
+lysine 0.14
+glycine 0.26
+serine 0.27
+alanine 0.38
+proline 0.43
+valine 0.60 
+leucine 0.73
+
+--- Page 27 ---
+26Separating SubStance S
+The chromatography detectives
+ After a crime, the for ensic detectives move in, looking for fingerprints and other 
+samples they can use in evidence.
+The key ideas in chromatography.
+Much of chromatography is detective work. You have already met paper 
+chromatography. There are many other kinds too. But the key ideas are always the same. 
+ Y ou need two phases:
+ 
+–
+ a non-moving or 
+stationary phase, such as filter paper
+ –
+  a moving or 
+mobile phase. This consists of the mixture you want to 
+separate, dissolved in a solvent. 
+  The substances in the mixture separate because each has dif ferent 
+levels of attraction to the solvent and the stationary phase. Look at the diagram on the right.
+  Y ou can then identify each separated substance. Depending on the 
+technique you use, you can also collect them.
+Ringing the changes
+Although those key ideas are always the same, the techniques used for chromatography can be quite different. For example:
+The stationary phase could be … The mobile phase could be … To analyse the substances, you could …
+ paper , as in paper chromatography
+ a thin coat of an adsorbent substance 
+on a glass plate, or inside a tube
+ plastic beads packed into a tube a mixtur e of substances dissolved in a 
+liquid, as in paper chromatography
+ a mixtur e of gases, carried in an inert 
+(unreactive) gas; this is called gas chromatography study the colour ed spots on the 
+chromatogram, as in paper chromatography
+ pass them thr ough a machine that will help 
+you analyse them
+the two substances
+have now separated
+the two substances
+begin to separate as themobile phase moves
+mobile phase
+(in this case a mixtureof two substancesdissolved in a solvent)
+stationary phase
+ How chr omatography works.
+
+--- Page 28 ---
+27Separating SubStance S
+Chromatography and crime detection
+Chromatography is widely used in crime detection. For example it is 
+used to analyse samples of fibre from crime scenes, check people’s blood for traces of illegal drugs, and examine clothing for traces of explosives. 
+This shows how a blood sample could be analysed, for traces of illegal 
+drugs, or a poison, using gas chromatography: 
+2
+ A sample of blood 
+is injected into 
+ 
+the carrier gas.3
+ The mixture goes into a 
+hot oven, where the blood 
+sample forms a vapour
+.
+1
+ The carrier gas is fed 
+ 
+in. It could be helium or nitrogen, for example.4
+ The vapour
+ moves  
+over the stationary phase:  an adsorbent substance lining a coiled glass tube.5
+ The separated 
+substances pass into a mass spectrometer
+, 
+where they are analysed.  6
+ The data is fed into  
+a recorder
+. The police 
+study it. They might make an arrest …
+Other uses
+Chromatography can be used on a small scale in the lab, or on a very large scale in industry. For example it is used on a small scale to:
+ identify substances (such as amino acids, on page 277)
+ check the purity of substances 
+ help in crime detection (as above)
+ identify pollutants in air , or in samples of river water.
+It is used on a large scale to:
+  separate pure substances (for example for making medical drugs or food
+ flavourings) from tanks of reaction mixtures, in factories
+  separate individual compounds from the groups of compounds (fractions)
+ obtained in refining petroleum.
+So chromatography is a really powerful and versatile tool.OVENinjector
+carrier gas
+coiled glass tubemass
+spectrometer
+recorder
+ Injecting a sample into the carrier 
+gas, at the start of gas chr
+omatography.
+ Collecting water samples, to analyse  
+for pollutants. The factories that produce 
+them could then be identified 
+ – and fined.
+
+
+--- Page 29 ---
+Questions
+Core curriculum
+1  This question is about ways to separate and purify  
+substances. Match each term on the left with the 
+correct description on the right.
+evaporation A
+a solid appears as the solution cools i
+condensing B
+used to separate a mixture of two liquids ii
+filtering C
+the solvent is removed as a gas iii
+crystallising D
+this method allows you to recycle a solventiv
+distillation E
+a gas changes to a liquid, on cooling v
+fractional distillation F
+separates an insoluble substance from a liquidvi
+ 
+2 This apparatus can be used to obtain pure water from salt water
+.
+ice-cold
+watericesalt water
+heat
+ a What is the purpose of the ice-cold water?
+ b
+ The glass arm must reach far down into the 
+ 
+ second test-tube. Why?
+ c
+ Where in the apparatus does this take place?
+  
+i
+ 
+evaporation
+  
+ii
+ condensation
+ d
+ What is this separation method called?
+ e
+  What will remain in the first test-tube, at the 
+end of the experiment?Revision checklist
+Core curriculum
+Make sure you can …
+ define and use these terms:  
+ mixture
+ solute
+ solvent
+ solution
+ aqueous solution 
+ give at least three examples of solvents 
+ state that most solids become more soluble as the temperature of the solvent rises
+ explain what these terms mean:  
+ pure substance
+ impurity
+ give examples of where purity is very important
+ say how melting and boiling points change, when  
+an impurity is present 
+ decide whether a substance is pure, from melting and boiling point data
+ describe these methods for separating mixtures, and sketch and label the apparatus:
+ 
+filtration
+ 
+crystallisation
+ evaporation to dryness
+ simple distillation
+ fractional distillation
+ paper chromatography 
+ explain why each of those separation methods works 
+ say which method you would choose for a given mixture, and why 
+ identify the coloured substances present in a mixture, 
+using chromatography
+Extended curriculum
+Make sure you can also …
+ explain what a locating agent is
+ describe how to carry out chromatography , to 
+identify colourless substances
+ define Rf value
+ identify the substances in a mixture, given a chromatogram and a table of 
+Rf values.
+Checkup on Chapter 2
+Separating SubStance S
+28
+
+--- Page 30 ---
+3 Seawater can be purified using this apparatus:
+seawater
+beakerB
+C
+A
+heat
+ a i   What is the maximum temperature recorded  
+on the thermometer, during the distillation?
+  ii
+  How does this compare to the boiling point 
+of the seawater?
+ 
+b
+  In which piece of apparatus does evaporation take place? Give its name.
+ c
+ i
+ Which is the condenser
+, A, B, or C?
+  
+ii
+ Where does the supply of cold water enter?
+ d
+  Distillation is used rather than filtration, to purify seawater for drinking. Why?
+4
+ Gypsum is insoluble in water
+. You are asked to 
+purify a sample of gypsum that is contaminated with a soluble salt.
+ a Wh ich of these pieces of apparatus will you use?  
+ Bunsen burner  filter funnel  tripod
+  distillation flask
+ conical flask
+ pipette
+  
+thermometer
+ condenser
+ gauze
+  stirring rod
+ filter paper
+ beaker
+ b
+ W
+rite step-by-step instructions for the procedure.
+5
+ Argon, oxygen, and nitrogen are obtained from air by fractional distillation. Liquid air
+, at 2250
+ 
+°C, is 
+warmed up, and the gases are collected one by one.
+ a
+ Is liquid air a mixture, or a pure substance?
+ b
+  Explain why fractional distillation is used, rather than simple distillation. 
+ c
+  During the distillation, nitrogen gas is obtained first, then argon and oxygen. What can you say about the
+ boiling points of these three gases? 
+6
+ A mixture of salt and sugar has to be separated, using the solvent ethanol.
+ a
+  Draw a diagram to show how you will separate the salt.
+ b
+  How could you obtain sugar crystals from the sugar solution, 
+without losing the ethanol? 
+ c
+ Draw a diagram of the apparatus for 
+b.7
+ In a chromatography experiment, eight coloured substances were spotted onto a piece of filter paper
+. 
+Three were the basic colours red, blue, and yellow. The others were unknown substances, labelled A
+ –
+ E. This shows the resulting chromatogram:
+ a Which one of substances  A  –  E contains only  
+ one basic colour?
+ b
+ Which contains all three basic colours?
+ c
+  The solvent was propanone. Which of the three basic colours is the most soluble in propanone?
+Extended curriculum
+8 The diagram below shows a chromatogram for a
+ mixture of amino acids.
+solvent
+front
+sample
+placed hereon pencil line
+initial
+solvent level12 cm 7.2 cm
+5.2 cm
+ The solvent was a mixture of water , butanol, and 
+ethanoic acid.
+ 
+a
+  Using the table of 
+Rf values on page 25, identify  
+the two amino acids.
+ b
+ Which of them is less soluble in the solvent?
+ c
+  How will the 
+Rf values change if the solvent 
+travels only 6 cm?
+9
+ Y
+ou have three colourless solutions. Each contains 
+an amino acid you must identify. 
+ Explain how to do this using chromatography
+.
+Use the terms Rf and locating agent in your answer, 
+and show that you understand what they mean.Separating SubStance S
+29
