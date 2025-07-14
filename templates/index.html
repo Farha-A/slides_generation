@@ -192,5 +192,84 @@
             </form>
         </div>
     </div>
+
+    <!-- Modified Generate Slides Modal -->
+<div id="generateSlidesModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideModal('generateSlidesModal')">×</span>
+        <h2>Select Files for Slides</h2>
+        <form id="selectFilesForm">
+            <div class="form-group">
+                <label for="gs_grade">Grade:</label>
+                <input type="text" id="gs_grade" name="grade" oninput="filterGeneratedFiles()">
+            </div>
+            <div class="form-group">
+                <label for="gs_course">Course:</label>
+                <input type="text" id="gs_course" name="course" oninput="filterGeneratedFiles()">
+            </div>
+            <div class="form-group">
+                <label for="gs_section">Section:</label>
+                <input type="text" id="gs_section" name="section" oninput="filterGeneratedFiles()">
+            </div>
+            <div class="form-group">
+                <label for="gs_language">Language:</label>
+                <select id="gs_language" name="language" oninput="filterGeneratedFiles()">
+                    <option value="">Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gs_country">Country:</label>
+                <input type="text" id="gs_country" name="country" oninput="filterGeneratedFiles()">
+            </div>
+            <div class="form-group">
+                <label for="gs_filenames">Available Slide Points Files:</label>
+                <select id="gs_filenames" name="filename" multiple></select>
+            </div>
+            <button type="button" onclick="openSlideParamsModal()">Go</button>
+        </form>
+    </div>
+</div>
+
+<!-- New Slide Parameters Modal -->
+<div id="slideParamsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideModal('slideParamsModal')">×</span>
+        <h2>Slide Generation Parameters</h2>
+        <form id="generateSlidesForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="sp_n_slides">Number of Slides:</label>
+                <input type="number" id="sp_n_slides" name="n_slides" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="sp_language">Language:</label>
+                <select id="sp_language" name="language" required>
+                    <option value="">Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sp_lesson">Lesson:</label>
+                <input type="text" id="sp_lesson" name="lesson">
+            </div>
+            <div class="form-group">
+                <label for="sp_chapter">Chapter:</label>
+                <input type="text" id="sp_chapter" name="chapter">
+            </div>
+            <div class="form-group">
+                <label for="sp_extra_prompts">Extra Prompts (optional):</label>
+                <textarea id="sp_extra_prompts" name="extra_prompts" rows="4" cols="50"></textarea>
+            </div>
+            <button type="button" onclick="generateSlides()">Generate Presentation</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

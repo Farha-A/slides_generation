@@ -23,6 +23,7 @@ import threading
 import json
 from datetime import datetime
 from werkzeug.utils import secure_filename
+import requests
 
 app = Flask(__name__)
 
@@ -35,16 +36,18 @@ UPLOAD_FOLDER = os.path.join(BASE_DIR, 'Uploads')
 CONTENT_FOLDER = os.path.join(BASE_DIR, 'content_text')
 GEMINI_FOLDER = os.path.join(BASE_DIR, 'gemini_pdfs')
 PROGRESS_FOLDER = os.path.join(BASE_DIR, 'progress')
+SLIDES_FOLDER = os.path.join(BASE_DIR, 'Slides')
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CONTENT_FOLDER'] = CONTENT_FOLDER
 app.config['GEMINI_FOLDER'] = GEMINI_FOLDER
 app.config['PROGRESS_FOLDER'] = PROGRESS_FOLDER
+app.config['SLIDES_FOLDER'] = SLIDES_FOLDER
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-for folder in [UPLOAD_FOLDER, CONTENT_FOLDER, GEMINI_FOLDER, PROGRESS_FOLDER]:
+for folder in [UPLOAD_FOLDER, CONTENT_FOLDER, GEMINI_FOLDER, PROGRESS_FOLDER, SLIDES_FOLDER]:
     try:
         os.makedirs(folder, exist_ok=True)
     except Exception as e:
@@ -52,6 +55,7 @@ for folder in [UPLOAD_FOLDER, CONTENT_FOLDER, GEMINI_FOLDER, PROGRESS_FOLDER]:
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+PRESENTON_URL = os.getenv("PRESENTON_URL")
 
 processing_status = {}
 status_lock = threading.Lock()
@@ -359,6 +363,113 @@ def generate_slides():
     thread.start()
     
     return jsonify({'success': True, 'job_id': job_id, 'message': 'Slide generation started'})
+
+@app.route('/generate', methods=['POST'])
+def generate_slides_pptx():
+    """Handle form submission, send API request for multiple files, and provide presentation links."""
+    try:
+        filenames = request.form.getlist('filename')  # Get list of filenames
+        n_slides = request.form['n_slides']
+        language = request.form['language']
+        lesson = request.form.get('lesson', '')
+        chapter = request.form.get('chapter', '')
+        extra_prompts = request.form.get('extra_prompts', '')
+
+        if not filenames:
+            logger.error("No files selected")
+            return jsonify({'error': 'No files selected'}), 400
+
+        if not n_slides or not language:
+            logger.error("Missing required form fields in generate")
+            return jsonify({'error': 'Missing required form fields'}), 400
+
+        job_id = f"gen_ppt_{int(time.time())}_{'_'.join([os.path.splitext(f)[0] for f in filenames])}"
+        update_progress(job_id, 'initializing', 5, "Initializing presentation generation...")
+
+        def generate_presentation_background():
+            try:
+                for idx, filename in enumerate(filenames):
+                    file_path = os.path.join(app.config['GEMINI_FOLDER'], filename)
+                    if not os.path.exists(file_path):
+                        logger.error(f"File not found: {file_path}")
+                        update_progress(job_id, 'error', 0, f"File not found: {filename}")
+                        continue
+
+                    update_progress(job_id, 'processing', 20 + (idx / len(filenames)) * 60, f"Processing file {filename}...")
+
+                    prompt = "Generate a presentation from the provided PDF file."
+                    if lesson and chapter:
+                        prompt += f"\nUse lesson {lesson} of chapter {chapter} only."
+                    elif chapter:
+                        prompt += f"\nUse chapter {chapter} only."
+                    if extra_prompts:
+                        prompt += f"\n {extra_prompts}"
+
+                    with open(file_path, 'rb') as f:
+                        files = {'documents': (filename, f, "application/pdf")}
+                        data = {
+                            'prompt': prompt,
+                            'n_slides': n_slides,
+                            'language': language,
+                        }
+                        response = requests.post(PRESENTON_URL, data=data, files=files)
+
+                    if response.status_code == 200:
+                        response_data = response.json()
+                        presentation_id = response_data.get('presentation_id')
+                        presentation_path = response_data.get('path')
+
+                        presentation_filename = os.path.basename(presentation_path)
+                        local_presentation_path = os.path.join(app.config['SLIDES_FOLDER'], presentation_filename)
+
+                        download_url = PRESENTON_URL.rsplit('/api/', 1)[0] + presentation_path
+                        download_response = requests.get(download_url)
+
+                        if download_response.status_code == 200:
+                            with open(local_presentation_path, 'wb') as f:
+                                f.write(download_response.content)
+                            logger.info(f"Presentation downloaded successfully as {presentation_filename}")
+                            update_progress(job_id, 'processing', 20 + ((idx + 1) / len(filenames)) * 60, 
+                                           f"Presentation generated for {filename}")
+                        else:
+                            logger.error(f"Failed to download presentation for {filename}. Status code: {download_response.status_code}")
+                            update_progress(job_id, 'error', 0, f"Failed to download presentation for {filename}: {download_response.status_code}")
+                    else:
+                        logger.error(f"API error for {filename}: {response.status_code} - {response.text}")
+                        update_progress(job_id, 'error', 0, f"API error for {filename}: {response.status_code} - {response.text}")
+
+                update_progress(job_id, 'completed', 100, "All presentations generated successfully!")
+            except Exception as e:
+                logger.error(f"Error generating presentations: {e}")
+                update_progress(job_id, 'error', 0, f"Error: {str(e)}")
+
+        thread = threading.Thread(target=generate_presentation_background)
+        thread.daemon = True
+        thread.start()
+
+        return jsonify({
+            'success': True,
+            'job_id': job_id,
+            'message': 'Presentation generation started'
+        })
+
+    except Exception as e:
+        logger.error(f"Error in generate: {e}")
+        return jsonify({'error': f'Generation failed: {str(e)}'}), 500
+
+@app.route('/download/<filename>')
+def download(filename):
+    """Serve the presentation file for download or opening."""
+    try:
+        decoded_filename = urllib.parse.unquote(filename)
+        file_path = os.path.join(app.config['SLIDES_FOLDER'], decoded_filename)
+        if os.path.exists(file_path):
+            return send_file(file_path, mimetype='application/vnd.openxmlformats-officedocument.presentationml.presentation', as_attachment=False)
+        logger.error(f"Presentation file not found: {file_path}")
+        return jsonify({'error': 'Presentation file not found'}), 404
+    except Exception as e:
+        logger.error(f"Error serving presentation: {e}")
+        return jsonify({'error': str(e)}), 500
 
 def update_progress(job_id, stage, progress, message=""):
     with status_lock:

@@ -286,3 +286,145 @@ function generateSlidePoints() {
         });
     });
 }
+
+// Existing functions (showModal, hideModal, startProgress, uploadFile, fetchFiles, filterFiles, filterUploadedFiles, filterGeneratedSlidePoints, openUploadedFile, downloadUploadedFile, openGeneratedSlidePoints, downloadGeneratedSlidePoints) remain unchanged
+
+function generateSlides() {
+    var form = document.getElementById('generateSlidesForm');
+    var formData = new FormData(form);
+
+    form.reset();
+
+    fetch('/generate', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Presentation generation started.');
+            hideModal('generateSlidesModal');
+            startProgress(data.job_id);
+        } else {
+            alert('Generation failed: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during presentation generation.');
+    });
+}
+
+let selectedFiles = [];
+
+function filterGeneratedFiles() {
+    const grade = document.getElementById('gs_grade').value.toLowerCase();
+    const course = document.getElementById('gs_course').value.toLowerCase();
+    const section = document.getElementById('gs_section').value.toLowerCase();
+    const language = document.getElementById('gs_language').value.toLowerCase();
+    const country = document.getElementById('gs_country').value.toLowerCase();
+    const fileSelect = document.getElementById('gs_filenames');
+    const options = fileSelect.options;
+
+    for (let i = 0; i < options.length; i++) {
+        const file = options[i].value.toLowerCase();
+        const show =
+            (grade === '' || file.includes(grade)) &&
+            (course === '' || file.includes(course)) &&
+            (section === '' || file.includes(section)) &&
+            (language === '' || file.includes(language)) &&
+            (country === '' || file.includes(country));
+        options[i].style.display = show ? '' : 'none';
+    }
+}
+
+function openSlideParamsModal() {
+    const fileSelect = document.getElementById('gs_filenames');
+    selectedFiles = Array.from(fileSelect.selectedOptions).map(option => option.value);
+
+    if (selectedFiles.length === 0) {
+        alert('Please select at least one slide points file.');
+        return;
+    }
+
+    hideModal('generateSlidesModal');
+    showModal('slideParamsModal');
+}
+
+function generateSlides() {
+    var form = document.getElementById('generateSlidesForm');
+    var formData = new FormData(form);
+
+    form.reset();
+    hideModal('slideParamsModal');
+
+    selectedFiles.forEach(filename => {
+        formData.set('filename', filename);
+        fetch('/generate', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Presentation generation started for ' + filename);
+                startProgress(data.job_id);
+            } else {
+                alert('Generation failed for ' + filename + ': ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred during presentation generation for ' + filename);
+        });
+    });
+}
+
+function showModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+    if (modalId === 'generateSlidePointsModal' || modalId === 'openUploadedFilesModal' || modalId === 'openGeneratedSlidePointsModal' || modalId === 'generateSlidesModal') {
+        fetchFiles(modalId);
+    }
+}
+
+function fetchFiles(modalId) {
+    let endpoint;
+    if (modalId === 'generateSlidePointsModal' || modalId === 'openUploadedFilesModal') {
+        endpoint = '/get_content_files';
+    } else if (modalId === 'openGeneratedSlidePointsModal' || modalId === 'generateSlidesModal') {
+        endpoint = '/get_generated_slide_points';
+    }
+
+    fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+            const fileSelect = modalId === 'generateSlidePointsModal' ? 
+                document.getElementById('sp_filenames') : 
+                modalId === 'openUploadedFilesModal' ? 
+                document.getElementById('of_filenames') : 
+                modalId === 'openGeneratedSlidePointsModal' ? 
+                document.getElementById('ogsp_filenames') : 
+                document.getElementById('gs_filenames');
+            fileSelect.innerHTML = '';
+            data.files.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file;
+                option.text = file;
+                fileSelect.appendChild(option);
+            });
+            if (modalId === 'generateSlidePointsModal') {
+                filterFiles();
+            } else if (modalId === 'openUploadedFilesModal') {
+                filterUploadedFiles();
+            } else if (modalId === 'openGeneratedSlidePointsModal') {
+                filterGeneratedSlidePoints();
+            } else if (modalId === 'generateSlidesModal') {
+                filterGeneratedFiles();
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching files:', error);
+            alert('Error fetching content files.');
+        });
+}
