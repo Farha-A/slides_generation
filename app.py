@@ -159,6 +159,16 @@ def get_content_files():
         logger.error(f"Error listing content files: {e}")
         return jsonify({'error': str(e)}), 500
 
+@app.route('/get_generated_slide_points')
+def get_generated_slide_points():
+    """Return list of available generated slide points PDF files"""
+    try:
+        files = [f for f in os.listdir(app.config['GEMINI_FOLDER']) if f.endswith('.pdf')]
+        return jsonify({'files': files})
+    except Exception as e:
+        logger.error(f"Error listing generated slide points files: {e}")
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/view_text_file/<filename>')
 def view_text_file(filename):
     """Serve text file content"""
@@ -381,6 +391,20 @@ def view_pdf(filename):
         return jsonify({'error': 'PDF not found'}), 404
     except Exception as e:
         logger.error(f"Error serving PDF: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/download_generated_slide_points/<filename>')
+def download_generated_slide_points(filename):
+    """Download a generated slide points PDF as an attachment"""
+    decoded_filename = urllib.parse.unquote(filename)
+    file_path = os.path.join(app.config['GEMINI_FOLDER'], decoded_filename)
+    try:
+        if os.path.exists(file_path):
+            return send_file(file_path, mimetype='application/pdf', as_attachment=True)
+        logger.error(f"PDF not found: {file_path}")
+        return jsonify({'error': 'PDF not found'}), 404
+    except Exception as e:
+        logger.error(f"Error serving PDF for download: {e}")
         return jsonify({'error': str(e)}), 500
 
 def update_progress(job_id, stage, progress, message=""):

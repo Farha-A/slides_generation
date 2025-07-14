@@ -86,7 +86,8 @@
                 <div class="form-group">
                     <label for="sp_language">Language:</label>
                     <select id="sp_language" name="language" oninput="filterFiles()">
-                        <option value="">Select Language</option><option value="eng">English</option>
+                        <option value="">Select Language</option>
+                        <option value="eng">English</option>
                         <option value="ara">Arabic</option>
                         <option value="fra">French</option>
                         <option value="spa">Spanish</option>
@@ -128,7 +129,8 @@
                 <div class="form-group">
                     <label for="of_language">Language:</label>
                     <select id="of_language" name="language" oninput="filterUploadedFiles()">
-                        <option value="">Select Language</option><option value="eng">English</option>
+                        <option value="">Select Language</option>
+                        <option value="eng">English</option>
                         <option value="ara">Arabic</option>
                         <option value="fra">French</option>
                         <option value="spa">Spanish</option>
@@ -149,5 +151,49 @@
             </form>
         </div>
     </div>
+
+    <div id="openGeneratedSlidePointsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModal('openGeneratedSlidePointsModal')">&times;</span>
+            <h2>Open Generated Slide Points</h2>
+            <form id="openGeneratedSlidePointsForm">
+                <div class="form-group">
+                    <label for="ogsp_grade">Grade:</label>
+                    <input type="text" id="ogsp_grade" name="grade" oninput="filterGeneratedSlidePoints()">
+                </div>
+                <div class="form-group">
+                    <label for="ogsp_course">Course:</label>
+                    <input type="text" id="ogsp_course" name="course" oninput="filterGeneratedSlidePoints()">
+                </div>
+                <div class="form-group">
+                    <label for="ogsp_section">Section:</label>
+                    <input type="text" id="ogsp_section" name="section" oninput="filterGeneratedSlidePoints()">
+                </div>
+                <div class="form-group">
+                    <label for="ogsp_language">Language:</label>
+                    <select id="ogsp_language" name="language" onchange="filterGeneratedSlidePoints()">
+                        <option value="">Select Language</option>
+                        <option value="eng">English</option>
+                        <option value="ara">Arabic</option>
+                        <option value="fra">French</option>
+                        <option value="spa">Spanish</option>
+                        <option value="deu">German</option>
+                        <option value="chi_sim">Chinese</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ogsp_country">Country:</label>
+                    <input type="text" id="ogsp_country" name="country" oninput="filterGeneratedSlidePoints()">
+                </div>
+                <div class="form-group">
+                    <label for="ogsp_filenames">Available Slide Points Files:</label>
+                    <select id="ogsp_filenames" name="filename"></select>
+                </div>
+                <button type="button" onclick="openGeneratedSlidePoints()">Open</button>
+                <button type="button" onclick="downloadGeneratedSlidePoints()">Download</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
