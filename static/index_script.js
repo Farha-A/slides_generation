@@ -30,6 +30,17 @@ function startProgress(jobId) {
             eventSource.close();
             alert('Processing completed successfully!');
             document.getElementById('progressSection').style.display = 'none';
+            // Auto-download generated slides if available
+            if (data.downloaded_files && Array.isArray(data.downloaded_files)) {
+                data.downloaded_files.forEach(function(filename) {
+                    const link = document.createElement('a');
+                    link.href = `/download_slide/${encodeURIComponent(filename)}`;
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            }
         } else if (data.stage === 'error') {
             eventSource.close();
             alert('Error: ' + data.message);
@@ -301,26 +312,28 @@ function generateSlidePoints() {
 function generateSlides() {
     var form = document.getElementById('generateSlidesForm');
     var formData = new FormData(form);
-
+    // No need to manually set theme, as it is included in the form
     form.reset();
-
-    fetch('/generate_slides_pptx', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Presentation generation started.');
-            hideModal('generateSlidesModal');
-            startProgress(data.job_id);
-        } else {
-            alert('Generation failed: ' + data.error);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred during presentation generation.');
+    hideModal('slideParamsModal');
+    selectedFiles.forEach(filename => {
+        formData.set('filename', filename);
+        fetch('/generate_slides_pptx', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Presentation generation started for ' + filename);
+                startProgress(data.job_id);
+            } else {
+                alert('Generation failed for ' + filename + ': ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred during presentation generation for ' + filename);
+        });
     });
 }
 

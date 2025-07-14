@@ -424,6 +424,7 @@ def generate_slides_pptx():
         filenames = request.form.getlist('filename')  # Get list of filenames
         n_slides = request.form['n_slides']
         language = request.form['language']
+        theme = request.form.get('theme', '')
         lesson = request.form.get('lesson', '')
         chapter = request.form.get('chapter', '')
         extra_prompts = request.form.get('extra_prompts', '')
@@ -441,6 +442,7 @@ def generate_slides_pptx():
 
         def generate_presentation_background():
             try:
+                downloaded_files = []
                 for idx, filename in enumerate(filenames):
                     file_path = os.path.join(app.config['GEMINI_FOLDER'], filename)
                     if not os.path.exists(file_path):
@@ -464,6 +466,7 @@ def generate_slides_pptx():
                             'prompt': prompt,
                             'n_slides': n_slides,
                             'language': language,
+                            'theme': theme,
                         }
                         response = requests.post(PRESENTON_URL, data=data, files=files)
 
@@ -484,6 +487,7 @@ def generate_slides_pptx():
                             logger.info(f"Presentation downloaded successfully as {presentation_filename}")
                             update_progress(job_id, 'processing', 20 + ((idx + 1) / len(filenames)) * 60, 
                                            f"Presentation generated for {filename}")
+                            downloaded_files.append(presentation_filename)
                         else:
                             logger.error(f"Failed to download presentation for {filename}. Status code: {download_response.status_code}")
                             update_progress(job_id, 'error', 0, f"Failed to download presentation for {filename}: {download_response.status_code}")
@@ -492,6 +496,9 @@ def generate_slides_pptx():
                         update_progress(job_id, 'error', 0, f"API error for {filename}: {response.status_code} - {response.text}")
 
                 update_progress(job_id, 'completed', 100, "All presentations generated successfully!")
+                # Save the downloaded files list to the job status for frontend polling
+                with status_lock:
+                    processing_status[job_id]['downloaded_files'] = downloaded_files
             except Exception as e:
                 logger.error(f"Error generating presentations: {e}")
                 update_progress(job_id, 'error', 0, f"Error: {str(e)}")
@@ -503,12 +510,27 @@ def generate_slides_pptx():
         return jsonify({
             'success': True,
             'job_id': job_id,
-            'message': 'Presentation generation started'
+            'message': 'Presentation generation started',
+            # 'downloaded_files' will be available via progress polling
         })
 
     except Exception as e:
         logger.error(f"Error in generate: {e}")
         return jsonify({'error': f'Generation failed: {str(e)}'}), 500
+
+@app.route('/download_slide/<filename>')
+def download_slide(filename):
+    """Download a generated slide (PPTX) as an attachment from Slides folder"""
+    decoded_filename = urllib.parse.unquote(filename)
+    file_path = os.path.join(app.config['SLIDES_FOLDER'], decoded_filename)
+    try:
+        if os.path.exists(file_path):
+            return send_file(file_path, as_attachment=True)
+        logger.error(f"Slide not found: {file_path}")
+        return jsonify({'error': 'Slide not found'}), 404
+    except Exception as e:
+        logger.error(f"Error serving slide for download: {e}")
+        return jsonify({'error': str(e)}), 500
 
 def update_progress(job_id, stage, progress, message=""):
     """Update processing progress"""

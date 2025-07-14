@@ -16,7 +16,7 @@
         <button onclick="showModal('generateSlidesModal')">Generate Slides</button>
         <button onclick="showModal('openUploadedFilesModal')">Open Uploaded Files</button>
         <button onclick="showModal('openGeneratedSlidePointsModal')">Open Generated Slides Points</button>
-        <button onclick="showModal('openGeneratedSlidesModal')">Open Generated Slides</button>
+        <!-- <button onclick="showModal('openGeneratedSlidesModal')">Open Generated Slides</button> -->
     </div>
 
     <div id="progressSection" style="display: none; margin: 20px;">
@@ -243,7 +243,7 @@
         <h2>Slide Generation Parameters</h2>
         <form id="generateSlidesForm" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="sp_n_slides">Number of Slides:</label>
+                <label for="sp_n_slides">Number of Slides: (5-15)</label>
                 <input type="number" id="sp_n_slides" name="n_slides" min="1" required>
             </div>
             <div class="form-group">
@@ -254,6 +254,18 @@
                     <option value="Arabic">Arabic</option>
                     <option value="Spanish">Spanish</option>
                     <option value="French">French</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sp_theme">Themes:</label>
+                <select id="sp_theme" name="theme" required>
+                    <option value="dark">Dark</option>
+                    <option value="royal_blue">Royal Blue</option>
+                    <option value="creme">Creme</option>
+                    <option value="light_red">Light Red</option>
+                    <option value="dark_pink">Dark Pink</option>
+                    <option value="light">Light</option>
+                    <option value="faint_yellow">Faint Yellow</option>
                 </select>
             </div>
             <div class="form-group">
