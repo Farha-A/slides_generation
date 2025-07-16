@@ -243,14 +243,14 @@
         <form id="generateSlidesForm" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="sp_n_slides">Number of Slides: (5-15)</label>
-                <input type="number" id="sp_n_slides" name="n_slides" min="1" required>
+                <input type="number" id="sp_n_slides" name="n_slides" min="5" max="15">
             </div>
             <div class="form-group">
                 <label for="sp_language">Language:</label>
                 <select id="sp_language" name="language" required>
                     <option value="">Select Language</option>
                     <option value="English">English</option>
-                    <option value="Arabic">Arabic</option>
+                    <option value="Arabic (العربية)">Arabic</option>
                     <option value="Spanish">Spanish</option>
                     <option value="French">French</option>
                 </select>
