@@ -1,0 +1,11 @@
+Flask
+gunicorn
+PyPDF2
+pdf2image
+pytesseract
+Pillow
+python-dotenv
+reportlab
+arabic_reshaper
+python-bidi
+google-generativeai

@@ -897,5 +897,25 @@ def get_page_count(txt_path):
         logger.error(f"Error reading page count: {e}")
         return 0
 
-if __name__ == '__main__':
-    app.run(debug=True, port=1000)
+if __name__ == "__main__":
+    # Clean up any old files on startup
+    try:
+        import glob
+        from datetime import datetime, timedelta
+        
+        cutoff_time = datetime.now() - timedelta(hours=1)
+        
+        # Clean up any stale upload files
+        for upload_file in glob.glob(os.path.join(UPLOAD_FOLDER, '*')):
+            try:
+                file_time = datetime.fromtimestamp(os.path.getmtime(upload_file))
+                if file_time < cutoff_time:
+                    os.remove(upload_file)
+                    logger.info(f"Cleaned up stale upload file: {upload_file}")
+            except:
+                pass
+    except Exception as e:
+        logger.warning(f"Error during startup cleanup: {e}")
+    
+    # Run the app
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)), threaded=True)

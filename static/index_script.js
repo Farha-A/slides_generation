@@ -3,6 +3,22 @@ function showModal(modalId) {
     modal.style.display = 'block';
     if (modalId === 'generateSlidePointsModal' || modalId === 'openUploadedFilesModal' || modalId === 'openGeneratedSlidePointsModal' || modalId === 'generateSlidesModal') {
         fetchFiles(modalId);
+        if (modalId === 'openUploadedFilesModal') {
+            const inputs = ['of_grade', 'of_course', 'of_section', 'of_language', 'of_country'];
+            inputs.forEach(id => {
+                const element = document.getElementById(id);
+                // Remove existing listeners to prevent duplicates
+                element.removeEventListener('input', filterUploadedFiles);
+                element.addEventListener('input', filterUploadedFiles);
+            });
+        } else if (modalId === 'openGeneratedSlidePointsModal') {
+            const inputs = ['ogsp_grade', 'ogsp_course', 'ogsp_section', 'ogsp_language', 'ogsp_country'];
+            inputs.forEach(id => {
+                const element = document.getElementById(id);
+                element.removeEventListener('input', filterGeneratedSlidePoints);
+                element.addEventListener('input', filterGeneratedSlidePoints);
+            });
+        }
     }
 }
 
@@ -30,7 +46,6 @@ function startProgress(jobId) {
             eventSource.close();
             alert('Processing completed successfully!');
             document.getElementById('progressSection').style.display = 'none';
-            // Auto-download generated slides if available
             if (data.downloaded_files && Array.isArray(data.downloaded_files)) {
                 data.downloaded_files.forEach(function(filename) {
                     const link = document.createElement('a');
@@ -159,14 +174,25 @@ function filterUploadedFiles() {
     const options = fileSelect.options;
 
     for (let i = 0; i < options.length; i++) {
-        const file = options[i].value.toLowerCase();
-        const show =
-            (grade === '' || file.includes(grade)) &&
-            (course === '' || file.includes(course)) &&
-            (section === '' || file.includes(section)) &&
-            (language === '' || file.includes(language)) &&
-            (country === '' || file.includes(country));
-        options[i].style.display = show ? '' : 'none';
+        const filename = options[i].value;
+        const baseName = filename.substring(0, filename.lastIndexOf('.'));
+        const parts = baseName.split('_');
+        if (parts.length >= 5) {
+            const fileCourse = parts[0].toLowerCase();
+            const fileGrade = parts[1].toLowerCase();
+            const fileSection = parts[2].toLowerCase();
+            const fileLanguage = parts[3].toLowerCase();
+            const fileCountry = parts[4].toLowerCase();
+            const show =
+                (course === '' || fileCourse.includes(course)) &&
+                (grade === '' || fileGrade.includes(grade)) &&
+                (section === '' || fileSection.includes(section)) &&
+                (language === '' || fileLanguage.includes(language)) &&
+                (country === '' || fileCountry.includes(country));
+            options[i].style.display = show ? '' : 'none';
+        } else {
+            options[i].style.display = 'none';
+        }
     }
 }
 
@@ -180,14 +206,25 @@ function filterGeneratedSlidePoints() {
     const options = fileSelect.options;
 
     for (let i = 0; i < options.length; i++) {
-        const file = options[i].value.toLowerCase();
-        const show =
-            (grade === '' || file.includes(grade)) &&
-            (course === '' || file.includes(course)) &&
-            (section === '' || file.includes(section)) &&
-            (language === '' || file.includes(language)) &&
-            (country === '' || file.includes(country));
-        options[i].style.display = show ? '' : 'none';
+        const filename = options[i].value;
+        const baseName = filename.substring(0, filename.lastIndexOf('.'));
+        const parts = baseName.split('_');
+        if (parts.length >= 6) {
+            const fileCourse = parts[0].toLowerCase();
+            const fileGrade = parts[1].toLowerCase();
+            const fileSection = parts[2].toLowerCase();
+            const fileLanguage = parts[3].toLowerCase();
+            const fileCountry = parts[4].toLowerCase();
+            const show =
+                (course === '' || fileCourse.includes(course)) &&
+                (grade === '' || fileGrade.includes(grade)) &&
+                (section === '' || fileSection.includes(section)) &&
+                (language === '' || fileLanguage.includes(language)) &&
+                (country === '' || fileCountry.includes(country));
+            options[i].style.display = show ? '' : 'none';
+        } else {
+            options[i].style.display = 'none';
+        }
     }
 }
 
@@ -312,7 +349,6 @@ function generateSlidePoints() {
 function generateSlides() {
     var form = document.getElementById('generateSlidesForm');
     var formData = new FormData(form);
-    // No need to manually set theme, as it is included in the form
     form.reset();
     hideModal('slideParamsModal');
     selectedFiles.forEach(filename => {
