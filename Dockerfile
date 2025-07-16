@@ -38,4 +38,6 @@ COPY . .
 EXPOSE 5000
 
 # Run the Flask app
-CMD ["/bin/bash", "-c", "exec gunicorn app:app --bind 0.0.0.0:$PORT"]
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+CMD ["/app/entrypoint.sh"]
