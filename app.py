@@ -270,7 +270,7 @@ def generate_slides():
             update_progress(job_id, 'initializing', 5, "Preparing to process content...")
             
             total_pages = get_page_count(txt_path)
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('gemini-2.5-flash')
             prompt = construct_prompt(grade, course, section, country, language)
             
             update_progress(job_id, 'reading', 10, "Reading content file...")
@@ -453,9 +453,9 @@ def generate_slides_pptx():
                     update_progress(job_id, 'processing', 20 + (idx / len(filenames)) * 60, f"Processing file {filename}...")
 
                     prompt = "Generate a presentation from the provided PDF file."
-                    if lesson and chapter:
-                        prompt += f"\nUse lesson {lesson} of chapter {chapter} only."
-                    elif chapter:
+                    if lesson:
+                        prompt += f"\nUse lesson {lesson} only."
+                    if chapter:
                         prompt += f"\nUse chapter {chapter} only."
                     if extra_prompts:
                         prompt += f"\n {extra_prompts}"
@@ -470,6 +470,7 @@ def generate_slides_pptx():
                         }
                         response = requests.post(PRESENTON_URL, data=data, files=files)
 
+                    logger.info(f"API response for {filename}: {response.status_code} - {response.text}")
                     if response.status_code == 200:
                         response_data = response.json()
                         presentation_id = response_data.get('presentation_id')
